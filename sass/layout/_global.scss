@@ -1,0 +1,21 @@
+
+/**  Basic Page CSS **/
+
+.ancestor * {
+  border: 1px solid lightblue;
+}
+
+body{
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+}
+
+
+.site-content {
+	padding: 1em;
+
+	@media screen and (min-width: $query__small) {
+		padding: 2em;
+	}
+}

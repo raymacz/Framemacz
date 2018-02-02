@@ -1,0 +1,774 @@
+@charset "UTF-8";
+/*!
+Theme Name: FrameMacz
+Theme URI: http://underscores.me/
+Author: Raymacz
+Author URI: http://webmacz.tk
+Description: A Dynamic Skeleton Theme using SASS with Bootstrap 4.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: framemacz
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+FrameMacz is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+/* custom w/ backup default fonts*/
+/*
+$font__roboto: 'Roboto Slab',sans-serif;
+$font__serif: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
+$font__sans: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+*/
+/* default */
+/* DISABLED: Reset / Normalize, Typography, Elements, Forms,
+  Links (under Navigation) (exclude wordpress specific styles like small menu) */
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/* @import "normalize"; */
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #404040;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+@media screen and (min-width: 700px) {
+	body,
+	button,
+	input,
+	select,
+	optgroup,
+	textarea {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+	margin: 0;
+}
+
+/*
+@media screen and (min-width: $query__font)	{
+	h1 {
+		 font-size: 32.4px;
+		 // 3em
+	}
+	h2 {
+		 font-size: 2.6em;
+	}
+	h3 {
+		 font-size: 2.2em;
+	}
+	h4 {
+		 font-size: 2em;
+	}
+	h5 {
+		 font-size: 1.8em;
+	}
+	h6 {
+		 font-size: 1.6em;
+	}
+
+}
+*/
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 18.75px;
+	font-size: 1.17188rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 18.75px;
+	font-size: 1.17188rem;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+/* @import "elements/elements"; */
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+/* @import "forms/forms"; */
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+/* @import "links"; */
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	left: 100%;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	float: left;
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* Bootstrap 4 multilevel dropdown inside navigation*/
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu a::after {
+	-webkit-transform: rotate(-90deg);
+	        transform: rotate(-90deg);
+	position: absolute;
+	right: 6px;
+	top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-left: .1rem;
+	margin-right: .1rem;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	/* clip-path: inset(50%); */
+	/* text may not be visible for svg fallback */
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	-webkit-clip-path: none;
+	        clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 17.5px;
+	font-size: 1.09375rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Global layouts
+--------------------------------------------------------------*/
+/**  Basic Page CSS **/
+.ancestor * {
+	border: 1px solid lightblue;
+}
+
+body {
+	font-weight: 300;
+	font-size: 20px;
+	position: relative;
+}
+
+.site-content {
+	padding: 1em;
+}
+
+@media screen and (min-width: 600px) {
+	.site-content {
+		padding: 2em;
+	}
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+/**  Header Navigation **/
+header .navbar {
+	padding: 30px 0;
+	-webkit-transition: all 1s ease-out;
+	transition: all 1s ease-out;
+	font-size: 20px;
+}
+
+header .navbar-default {
+	background-color: transparent;
+	border: none;
+}
+
+header .navbar-default .navbar-nav a {
+	color: gray;
+	padding: 5px 8px;
+}
+
+header .navbar-default .navbar-nav a:hover {
+	color: #EEC856;
+}
+
+header .navbar-default .navbar-nav .active a {
+	font-weight: 700;
+	color: #EEC856;
+	background: transparent;
+	border-bottom: 4px solid #EEC856;
+	text-shadow: none;
+}
+
+header .navbar-default .navbar-nav .active a:hover {
+	color: #E15D5F;
+	background: transparent;
+	text-shadow: none;
+}
+
+/**  Navbar Brand **/
+header .navbar-brand {
+	background: url(../framemacz/img/wisdompetlogo.svg);
+	background-repeat: no-repeat;
+	background-position: 15px 0;
+	height: auto;
+}
+
+header .navbar-brand h1 {
+	color: white;
+	margin: 0;
+	font-size: 1.8em;
+	font-weight: 400;
+	padding-left: 105px;
+}
+
+header .navbar-brand span.subhead {
+	display: block;
+	font-size: .6em;
+	font-weight: 100;
+}
+
+/**  Navbar Toggle **/
+header .navbar-toggle {
+	background-color: #279182;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+	header .navbar-collapse.in {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+/**  nav inbody **/
+header .inbody {
+	background: rgba(104, 73, 49, 0.9);
+}
+
+header .navbar.inbody {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+header .navbar.inbody .navbar-nav {
+	padding-top: 10px;
+}
+
+header .inbody .navbar-brand {
+	background-size: 43px;
+	background-position: top left;
+	margin-top: 5px;
+	padding-bottom: 0;
+	margin-left: 10px;
+}
+
+header .inbody .navbar-brand h1 {
+	font-size: 1.1em;
+	padding-left: 38px;
+}
+
+header .inbody .navbar-brand span.subhead {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-menu {
+	margin: 1em 0;
+}
+
+.footer-menu ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-menu ul a {
+	display: block;
+	padding: 0.1em 0.5em;
+	color: black;
+	text-decoration: none;
+	opacity: .6;
+}
+
+.footer-menu ul a:hover, .footer-menu ul a:focus {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+## Icons
+--------------------------------------------------------------*/
+/* SVG Icons base styles */
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 2.0em;
+	position: relative;
+	/* Align more nicely with capital letters */
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 2.0em;
+}
+
+/*--------------------------------------------------------------
+SVG Fallbacks
+--------------------------------------------------------------*/
+.svg-fallback {
+	display: none;
+}
+
+.no-svg .svg-fallback {
+	display: inline-block;
+}
+
+.no-svg .nav-links .svg-fallback {
+	padding: 0 0.5em;
+	color: inherit;
+	background: inherit;
+}
+
+.no-svg .svg-fallback.icon-arrow-long-left:before {
+	content: "←";
+}
+
+.no-svg .svg-fallback.icon-arrow-long-right:before {
+	content: "→";
+}
+
+/* Social Menu fallbacks */
+.no-svg .footer-menu a {
+	height: auto;
+	width: auto;
+}
+
+.no-svg .footer-menu li a .screen-reader-text {
+	clip: auto;
+	font-size: 12px;
+	font-size: 1rem;
+	font-weight: 400;
+	height: auto;
+	position: relative !important;
+	width: auto;
+	line-height: 12px;
+}
+
+/*# sourceMappingURL=../framemacz/sass/maps/style.css.map */
