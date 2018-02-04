@@ -20,7 +20,11 @@ $childrenli.find('a').addClass('js-scroll-trigger');
 
 // functionality
 
-  $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+  // $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+  $('ul a.dropdown-toggle').on('click', function(e) {
+    //var $nav_ctnr = $('nav div.collapse.navbar-collapse');
+    var $nav_ctnr = $('#navbarResponsive');
+    //console.log(e.currentTarget);
     if (!$(this).next().hasClass('show')) {
       $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
     }
@@ -29,6 +33,7 @@ $childrenli.find('a').addClass('js-scroll-trigger');
     $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
       $('.dropdown-submenu .show').removeClass("show");
     });
+      $nav_ctnr.addClass('show');    // rbtm
     return false;
   });
 

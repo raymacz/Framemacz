@@ -11,7 +11,9 @@
 
 ?>
 
-	 </section> <!-- Contact -->
+      	<?php// dynamic_sidebar('footer-1'); ?>
+
+
 
 		<!-- Footer -->
 	    <footer id="colophon" class="site-footer" role="contentinfo">

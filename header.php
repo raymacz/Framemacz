@@ -26,9 +26,11 @@
 
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+
         <div class="container">
-          <!-- <div class="row"> -->
-            <div class=" col-5 col-md-8 col-lg-3 col-xl-3">
+          <div class="row">
+            <!-- col-5 col-md-5 col-lg-3 col-xl-3 mr-auto -->
+            <div class=" col-5 col-md-5 col-lg-3 col-xl-3 mr-auto">
               <?php the_custom_logo(); ?>
               <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>
               <?php
@@ -36,11 +38,10 @@
               if ( $description || is_customize_preview() ) : ?>
                 <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
               <?php endif; ?>
-
             </div>
-            <div class=" ml-auto" >
-
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+             <!-- col-auto -->
+            <div class="col-auto">
+              <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu <i class="fa fa-bars"></i>
               </button>
             </div>
@@ -50,18 +51,20 @@
                     'menu'						 => 'Main Menu',
                     'theme_location'	 => 'menu-1',
                     'menu_id'          => 'primary-menu',
-                    'menu_class'       => 'navbar-nav text-uppercase ml-auto',
+                    'menu_class'       => 'navbar-nav text-uppercase',
                     'container'	 			 => 'div',
                     'container_id'		 => 'navbarResponsive',
-                    'container_class'	 => 'collapse navbar-collapse',
+                    'container_class'	 => 'collapse navbar-collapse col-auto',
                     'depth'            => 5,
                   );
 
                 if (!is_front_page()) {
                   $disp_menu['theme_location'] = 'menu-3';
+
                 }
                     wp_nav_menu($disp_menu);
                 ?>
+         </div>  <!-- row -->
         </div>  <!-- container -->
       </nav>
 
@@ -69,12 +72,15 @@
 
         <?php if (!(get_header_image() && is_front_page())) : ?>
           <!-- .header-image -->
-        <header id="masthead" class="site-header" role="banner">
-        <figure class="header-image">
+       <div class="container-fluid div-head" >
+        <header id="masthead" class=" home_header site-header" class role="banner">
+           <figure class=" header-image">
           <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-  			    <img src="<?php header_image(); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="header image">
-  		    </a>
+            <img src="<?php header_image(); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="header image">
+          </a>
         </figure>
+        </header>
+       </div>
       <?php else: ?>
         <header id="masthead" class="masthead site-header" role="banner">
           <div class="container">
@@ -84,7 +90,5 @@
               <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
             </div>
           </div>
-
+        </header>
         <?php endif; // End header image check.?>
-
-      </header>

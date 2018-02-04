@@ -1,5 +1,8 @@
 /* $primary: #fed136 !default; */
 /* general global variables */
+/*b4 grid  >=  < 576 768 992 1200 */
+/* max-width */
+/* min-width */
 /* development element guide */
 body {
 	overflow-x: hidden;
@@ -180,6 +183,24 @@ img::-moz-selection {
 @media (max-width: 545px) {
 	i.site-description {
 		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#mainNav button.navbtn {
+		margin-left: 220px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#mainNav #navbarResponsive {
+		margin-left: 15%;
+	}
+	#mainNav.navbar-shrink #navbarResponsive {
+		margin-left: 0;
+	}
+	#mainNav.navbar-shrink #navbarResponsive ul#primary-menu {
+		padding-left: 32px;
 	}
 }
 

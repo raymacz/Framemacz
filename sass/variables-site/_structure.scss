@@ -4,3 +4,13 @@ $size__site-sidebar: 25%;
 $query__small: 600px;
 $query__medium: 900px;
 $query__font: 700px;
+
+/*b4 grid  >=  < 576 768 992 1200 */
+/* max-width */
+$query_b4_xs: 575px;
+
+/* min-width */
+$query_b4_sm: 576px;
+$query_b4_md: 768px;
+$query_b4_lg: 992px;
+$query_b4_xl: 1200px;

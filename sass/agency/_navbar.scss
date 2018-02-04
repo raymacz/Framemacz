@@ -41,6 +41,8 @@
        font-size: 14px;
   }
 }
+
+
 @media(min-width:992px) {
   #mainNav {
     padding-top: 25px;
@@ -80,5 +82,24 @@
 @media(max-width:545px) {
   i.site-description {
       display: none;
+  }
+}
+
+// rbtm
+@media screen and (min-width: $query_b4_md) {
+  #mainNav button.navbtn {
+     margin-left: 220px;
+  }
+}
+
+@media screen and (min-width: $query_b4_xl ) {
+  #mainNav #navbarResponsive {
+     margin-left: 15%;
+  }
+  #mainNav.navbar-shrink #navbarResponsive {
+    margin-left: 0;
+    ul#primary-menu {
+      padding-left:32px;
+    }
   }
 }

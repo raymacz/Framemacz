@@ -1,13 +1,11 @@
 
 /**  Basic Page CSS **/
 
-.ancestor * {
-  border: 1px solid lightblue;
+.myancestor * {
+  border: 0.5px solid lightblue;
 }
 
 body{
-  font-weight: 300;
-  font-size: 20px;
   position: relative;
 }
 
@@ -18,4 +16,10 @@ body{
 	@media screen and (min-width: $query__small) {
 		padding: 2em;
 	}
+}
+
+div#primary.content-area {
+    /* padding: 40px; */
+    padding-bottom: 40px;
+    padding-top: 40px;
 }

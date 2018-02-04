@@ -9,17 +9,26 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary" class="content-area ">
+		<div class="container">
+      <div class="row">
+		<main id="main" class="site-main col-lg-8">
 
 		<?php
 		while ( have_posts() ) : the_post();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
+			?>
 
+			<!-- TO DO: need alignment post navigation -->
+			  <?php the_post_navigation(); ?>
+
+
+			<?php
 			// If comments are open or we have at least one comment, load up the comment template.
+
+			// TO DO: need alignment comments
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
@@ -28,8 +37,11 @@ get_header(); ?>
 		?>
 
 		</main><!-- #main -->
+		<?php get_sidebar(); ?>
+	</div> <!-- row -->
+	</div> <!-- container -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+
 get_footer();

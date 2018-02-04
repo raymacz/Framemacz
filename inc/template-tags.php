@@ -26,44 +26,19 @@ if ( ! function_exists( 'framemacz_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'framemacz' ),
+			esc_html_x( 'Published %s | ', 'post date', 'framemacz' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'framemacz' ),
+			esc_html_x( 'Author %s | ', 'post author', 'framemacz' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
-	}
-endif;
-
-if ( ! function_exists( 'framemacz_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function framemacz_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'framemacz' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'framemacz' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'framemacz' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'framemacz' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-		}
-
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+                
+                if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
@@ -79,10 +54,10 @@ if ( ! function_exists( 'framemacz_entry_footer' ) ) :
 					get_the_title()
 				)
 			);
-			echo '</span>';
+			echo ' | </span>';
 		}
-
-		edit_post_link(
+                
+                edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
@@ -98,6 +73,35 @@ if ( ! function_exists( 'framemacz_entry_footer' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
+
+	}
+endif;
+
+if ( ! function_exists( 'framemacz_entry_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function framemacz_entry_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'framemacz' ) );
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="cat-links">' . esc_html__( 'Category %1$s', 'framemacz' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			}
+
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'framemacz' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<span class="tags-links">' . esc_html__( 'Tag %1$s', 'framemacz' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
+		}
+
+		
+
+		
 	}
 endif;
 
@@ -115,12 +119,22 @@ function framemacz_post_thumbnail() {
 
 	if ( is_singular() ) :
 	?>
+        <div class="container-fluid">
+            <figure class="figure featured-image index-image">
+                                <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+                                        <?php
+                                        the_post_thumbnail('framemacz-index-img');
+                                        ?>
+                                </a>
+                        </figure><!-- .featured-image full-bleed -->
+        </div>
 
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div><!-- .post-thumbnail -->
 
-	<?php else : ?>
+
+
+
+
+        <?php else : ?>
 
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php

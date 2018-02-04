@@ -1,10 +1,46 @@
+
+#page .div-head {
+  padding: 0;
+}
+#masthead .container-fluid {
+  padding: 0;
+}
+
+figure.header-image {
+	max-height: 60vh;
+	overflow: hidden;
+  margin-bottom: 0;
+
+	img {
+		display: block;
+		width: 100vw;
+	}
+}
+/*
+.site-header {
+	position: relative;
+	padding: 1em;
+	font-family: $font__main;
+	color: #fff;
+	background-color: $color__skin;
+
+	@media screen and (min-width: $query__small) {
+		 padding: 1em 2em;
+	}
+}
+*/
+
+
+
+
+
 /**  Header Navigation **/
 
 header .navbar {
   padding: 30px 0;
   transition: all 1s ease-out;
-	// font-family: $font__roboto;
-	font-size: 20px;
+  // font-family: $font__roboto;
+  font-size: 20px;
 }
 
 header .navbar-default {
@@ -25,7 +61,7 @@ header .navbar-default .navbar-nav .active a {
   font-weight: 700;
   color: $color_navbar_state;
   background: transparent;
-	border-bottom: 4px solid $color_navbar_state;
+  border-bottom: 4px solid $color_navbar_state;
   text-shadow: none;
 }
 
@@ -34,11 +70,8 @@ header .navbar-default .navbar-nav .active a:hover {
   background: transparent;
   text-shadow: none;
 }
+@import "navbrand"; /**  Navbar Toggle **/
 
-@import "navbrand";
-
-
-/**  Navbar Toggle **/
 header .navbar-toggle {
   background-color: #279182;
 }
@@ -47,15 +80,12 @@ header .navbar-default .navbar-toggle .icon-bar {
   background-color: white;
 }
 
-@media only screen
-and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   header .navbar-collapse.in {
     background-color: rgba(0,0,0, .5);
   }
 }
-
 /**  nav inbody **/
-
 header .inbody {
   background: rgba(104,73,49,.9);
 }

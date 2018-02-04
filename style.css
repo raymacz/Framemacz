@@ -48,6 +48,9 @@ $font__serif: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
 $font__sans: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 */
 /* default */
+/*b4 grid  >=  < 576 768 992 1200 */
+/* max-width */
+/* min-width */
 /* DISABLED: Reset / Normalize, Typography, Elements, Forms,
   Links (under Navigation) (exclude wordpress specific styles like small menu) */
 /*--------------------------------------------------------------
@@ -393,13 +396,11 @@ big {
 ## Global layouts
 --------------------------------------------------------------*/
 /**  Basic Page CSS **/
-.ancestor * {
-	border: 1px solid lightblue;
+.myancestor * {
+	border: 0.5px solid lightblue;
 }
 
 body {
-	font-weight: 300;
-	font-size: 20px;
 	position: relative;
 }
 
@@ -413,9 +414,47 @@ body {
 	}
 }
 
+div#primary.content-area {
+	/* padding: 40px; */
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+#page .div-head {
+	padding: 0;
+}
+
+#masthead .container-fluid {
+	padding: 0;
+}
+
+figure.header-image {
+	max-height: 60vh;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+figure.header-image img {
+	display: block;
+	width: 100vw;
+}
+
+/*
+.site-header {
+	position: relative;
+	padding: 1em;
+	font-family: $font__main;
+	color: #fff;
+	background-color: $color__skin;
+
+	@media screen and (min-width: $query__small) {
+		 padding: 1em 2em;
+	}
+}
+*/
 /**  Header Navigation **/
 header .navbar {
 	padding: 30px 0;
@@ -544,6 +583,10 @@ header .inbody .navbar-brand span.subhead {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+span.cat-links {
+	display: block;
 }
 
 /*--------------------------------------------------------------
