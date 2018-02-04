@@ -30,7 +30,7 @@
         <div class="container">
           <div class="row">
             <!-- col-5 col-md-5 col-lg-3 col-xl-3 mr-auto -->
-            <div class=" col-5 col-md-5 col-lg-3 col-xl-3 mr-auto">
+            <div class=" col-4 col-md-3 col-lg-3 col-xl-3 mr-auto">
               <?php the_custom_logo(); ?>
               <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>
               <?php
