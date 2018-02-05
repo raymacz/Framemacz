@@ -97,15 +97,15 @@ function framemacz_fonts_url() {
 	 * supported by fonts set below, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$source_4th_font = _x( 'on', 'PT Serif font: on or off', 'framemacz' );
+	$source_4th_font = _x( 'on', 'Source Sans Pro font: on or off', 'framemacz' );
 	$source_3rd_font = _x( 'on', 'Roboto Slab font: on or off', 'framemacz' );
-	$source_2nd_font = _x( 'on', 'Source Sans Pro font: on or off', 'framemacz' );
+	$source_2nd_font = _x( 'on', 'Kaushan Script font: on or off', 'framemacz' );
 	$source_base_font = _x( 'on', 'PT Serif font: on or off', 'framemacz' );
   //echo "base font: "; print_r($source_base_font);
 	$font_families = array();
 
 	if ( 'off' !== $source_4th_font ) {
-		$font_families[] = 'Montserrat:400,700';
+		$font_families[] = 'Source Sans Pro:400,400i,700,900';
 	}
 
 	if ( 'off' !== $source_3rd_font ) {
@@ -233,7 +233,7 @@ function framemacz_scripts()
     // style.css
     wp_enqueue_style('framemacz-style', get_stylesheet_uri()); // style.css
     // agency css
-    wp_enqueue_style('framemacz-style-agency', get_template_directory_uri()  . '/agency.css');
+     wp_enqueue_style('framemacz-style-agency', get_template_directory_uri()  . '/agency.css');
 
     // bootstrap 4 requirement
     wp_enqueue_script('framemacz-script-tether', '//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js', array('jquery'), '20171225', true);

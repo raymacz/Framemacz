@@ -1,3 +1,16 @@
+
+/* Front-page Mixins */
+
+// Background Cover Mixin
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/** Subpage Mixins **/
+
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
 	font-size: ($sizeValue * 20) * 1px;
@@ -26,4 +39,35 @@
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+//Custom Mixins rbtm
+
+@mixin font__serif($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
+    @if $size { font-size: 1rem; }
+    @if $colour { color: black; }
+    @if $weight { font-weight: 400; }
+    @if $lh { line-height: 1.5; }
+}
+@mixin font__script($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+    @if $size { font-size: 1rem; }
+    @if $colour { color: black; }
+    @if $weight { font-weight: 400; }
+    @if $lh { line-height: 1.5; }
+}
+@mixin font__body-font($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    @if $size { font-size: 1rem; }
+    @if $colour { color: black; }
+    @if $weight { font-weight: 300; }
+    @if $lh { line-height: 1.5; }
+}
+@mixin font__header-font($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;;
+    @if $size { font-size: 1.25rem; }
+    @if $colour { color: black; }
+    @if $weight { font-weight: 700; }
+    @if $lh { line-height: 1.2; }
 }

@@ -1,4 +1,10 @@
 
+/** Front Page Static Styles **/
+@import "navbar";
+@import "masthead";
+
+
+/** Sub Pages **/
 #page .div-head {
   padding: 0;
 }
@@ -14,25 +20,9 @@ figure.header-image {
 	img {
 		display: block;
 		width: 100vw;
+    height: auto;
 	}
 }
-/*
-.site-header {
-	position: relative;
-	padding: 1em;
-	font-family: $font__main;
-	color: #fff;
-	background-color: $color__skin;
-
-	@media screen and (min-width: $query__small) {
-		 padding: 1em 2em;
-	}
-}
-*/
-
-
-
-
 
 /**  Header Navigation **/
 

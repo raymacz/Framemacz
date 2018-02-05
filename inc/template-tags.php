@@ -26,18 +26,18 @@ if ( ! function_exists( 'framemacz_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Published %s | ', 'post date', 'framemacz' ),
+			esc_html_x( 'Published %s ', 'post date', 'framemacz' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'Author %s | ', 'post author', 'framemacz' ),
+			esc_html_x( 'Author %s ', 'post author', 'framemacz' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-                
+
                 if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
@@ -54,9 +54,9 @@ if ( ! function_exists( 'framemacz_posted_on' ) ) :
 					get_the_title()
 				)
 			);
-			echo ' | </span>';
+			echo ' </span>';
 		}
-                
+
                 edit_post_link(
 			sprintf(
 				wp_kses(
@@ -99,9 +99,9 @@ if ( ! function_exists( 'framemacz_entry_footer' ) ) :
 			}
 		}
 
-		
 
-		
+
+
 	}
 endif;
 
