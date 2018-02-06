@@ -243,7 +243,7 @@ function framemacz_scripts()
     // navigation
     wp_enqueue_script('framemacz-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true);
 
-    // check if svg is browser supported
+    // check if svg is browser supported & other general functions
     wp_enqueue_script('framemacz-functions-svg', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20171225', true );
     wp_enqueue_script('framemacz-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 

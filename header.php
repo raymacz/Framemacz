@@ -28,9 +28,9 @@
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 
         <div class="container">
-          <div class="row">
-            <!-- col-5 col-md-5 col-lg-3 col-xl-3 mr-auto -->
-            <div class=" col-8 col-md-5 col-lg-3 col-xl-3 mr-auto">
+          <div class="row btnrow">
+            <!-- <div class=" col-8 col-md-5 col-lg-3 col-xl-3 mr-auto"> -->
+            <div class=" col-6 col-md-5 col-lg-3 col-xl-3 mr-auto">
               <div class="col-auto divlogo">
                 <?php the_custom_logo(); ?>
                 <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>

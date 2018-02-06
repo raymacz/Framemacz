@@ -1,7 +1,9 @@
 (function($){
+
+	// Add classes to add Full Bleed styling to Images
 	$('figure.wp-caption.aligncenter').removeAttr('style');
 	$('img.aligncenter').wrap('<figure class="centered-image" />');
-	
+
 	/*
 	 * Test if inline SVGs are supported.
 	 * @link https://github.com/Modernizr/Modernizr/
@@ -11,10 +13,8 @@
 		div.innerHTML = '<svg/>';
 		return 'http://www.w3.org/2000/svg' === ( 'undefined' !== typeof SVGRect && div.firstChild && div.firstChild.namespaceURI );
 	}
-	
+
 	if ( true === supportsInlineSVG() ) {
 		document.documentElement.className = document.documentElement.className.replace( /(\s*)no-svg(\s*)/, '$1svg$2' );
 	}
 })(jQuery);
-
-

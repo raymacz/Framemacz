@@ -937,7 +937,11 @@ header .inbody .navbar-brand span.subhead {
 	background-color: #212529;
 }
 
-#mainNav .navbar-toggler {
+#mainNav div.row.btnrow {
+	width: 100%;
+}
+
+#mainNav div.row.btnrow .navbar-toggler {
 	font-size: 12px;
 	right: 0;
 	padding: 13px;
@@ -948,16 +952,17 @@ header .inbody .navbar-brand span.subhead {
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
-#mainNav div.divlogo .navbar-brand {
+#mainNav div.row.btnrow div.divlogo .navbar-brand {
+	width: 100%;
 	color: #ee6f00;
 	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
 }
 
-#mainNav div.divlogo .navbar-brand.active, #mainNav div.divlogo .navbar-brand:active, #mainNav div.divlogo .navbar-brand:focus, #mainNav div.divlogo .navbar-brand:hover {
+#mainNav div.row.btnrow div.divlogo .navbar-brand.active, #mainNav div.row.btnrow div.divlogo .navbar-brand:active, #mainNav div.row.btnrow div.divlogo .navbar-brand:focus, #mainNav div.row.btnrow div.divlogo .navbar-brand:hover {
 	color: #bb5700;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link {
+#mainNav div.row.btnrow .navbar-nav .nav-item .nav-link {
 	font-weight: 400;
 	padding: 0.75em 0;
 	letter-spacing: 1px;
@@ -965,11 +970,11 @@ header .inbody .navbar-brand span.subhead {
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+#mainNav div.row.btnrow .navbar-nav .nav-item .nav-link.active, #mainNav div.row.btnrow .navbar-nav .nav-item .nav-link:hover {
 	color: #ee6f00;
 }
 
-#mainNav i.site-description {
+#mainNav div.row.btnrow i.site-description {
 	font-size: 14px;
 }
 
@@ -988,7 +993,7 @@ header .inbody .navbar-brand span.subhead {
 		transition: all 0.3s;
 	}
 	#mainNav i.site-description {
-		font-size: 80%;
+		font-size: 92%;
 	}
 	#mainNav i.site-description small {
 		font-size: 70%;
@@ -1028,20 +1033,8 @@ header .inbody .navbar-brand span.subhead {
 	}
 }
 
-@media screen and (min-width: 768px) {
-	#mainNav button.navbtn {
-		margin-left: 120px;
-	}
-}
-
-@media screen and (min-width: 576px) {
-	#mainNav a.navbar-brand {
-		margin-right: 270px;
-	}
-}
-
 @media screen and (max-width: 575px) {
-	#mainNav i.site-description {
+	#mainNav div.row.btnrow i.site-description {
 		display: none;
 	}
 }
@@ -1746,6 +1739,22 @@ SVG Fallbacks
 	position: relative !important;
 	width: auto;
 	line-height: 12px;
+}
+
+/*--------------------------------------------------------------
+## Icons
+--------------------------------------------------------------*/
+.wp-caption.aligncenter,
+.centered-image {
+	max-width: 100vw;
+	margin: 0 -1em;
+}
+
+@media screen and (min-width: 600px) {
+	.wp-caption.aligncenter,
+	.centered-image {
+		margin: 0 -2em;
+	}
 }
 
 /*# sourceMappingURL=../framemacz/sass/maps/style.css.map */
