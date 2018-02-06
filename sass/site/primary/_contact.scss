@@ -27,23 +27,23 @@ section#contact {
   ::-webkit-input-placeholder {
     font-weight: 700;
     color: $gray-400;
-    @include font__header-font;
+    font-family: $font__header-font;
   }
   :-moz-placeholder {
     font-weight: 700;
     color: $gray-400;
     /* Firefox 18- */
-    @include font__header-font;
+    font-family: $font__header-font;
   }
   ::-moz-placeholder {
     font-weight: 700;
     color: $gray-400;
     /* Firefox 19+ */
-    @include font__header-font;
+    font-family: $font__header-font;
   }
   :-ms-input-placeholder {
     font-weight: 700;
     color: $gray-400;
-    @include font__header-font;
+    font-family: $font__header-font;
   }
 }

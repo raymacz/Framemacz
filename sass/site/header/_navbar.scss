@@ -12,27 +12,32 @@
     color: white;
     border: 0;
     background-color: $primary;
-    @include font__header-font;
+    font-family: $font__header-font;
   }
-  .navbar-brand {
-    color: $primary;
-    @include font__script;
-    &.active,
-    &:active,
-    &:focus,
-    &:hover {
-      color: darken($primary, 10%);
+  div.divlogo {
+    // display: flex;
+    .navbar-brand {
+      color: $primary;
+      font-family: $font__script;
+      &.active,
+      &:active,
+      &:focus,
+      &:hover {
+        color: darken($primary, 10%);
+      }
+    }
+    .site-description {
     }
   }
   .navbar-nav {
     .nav-item {
       .nav-link {
-        font-size: 70%;
+        // font-size: 90%;
         font-weight: 400;
         padding: 0.75em 0;
         letter-spacing: 1px;
         color: white;
-        @include font__header-font;
+        font-family: $font__header-font;
         &.active,
         &:hover {
           color: $primary;
@@ -46,7 +51,7 @@
 }
 
 
-@media(min-width:992px) {
+@media(min-width:$query_b4_lg) {
   #mainNav {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -55,18 +60,32 @@
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
     background-color: transparent;
-    .navbar-brand {
-      font-size: 1.5em;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
-    }
-    .navbar-nav {
+      .navbar-brand {
+        font-size: 1.2em;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      i.site-description {
+          font-size: 80%;
+          small {
+            font-size: 70%;
+          }
+      }
+   .navbar-nav {
+      margin-left: 0;
       .nav-item {
         .nav-link {
           padding: 1.1em 0.75em !important;
         }
       }
+    }
+    .divbtn {
+      display: none;
+    }
+    .collapse.navbar-collapse {
+      flex: 0 1 auto;
+      font-size: 90%;
     }
     &.navbar-shrink {
       padding-top: 0;
@@ -91,18 +110,19 @@
 // rbtm
 @media screen and (min-width: $query_b4_md) {
   #mainNav button.navbtn {
-     margin-left: 220px;
+     margin-left: 120px;
   }
 }
 
-@media screen and (min-width: $query_b4_xl ) {
-  #mainNav #navbarResponsive {
-     margin-left: 15%;
+@media screen and (min-width: $query_b4_sm) {
+  #mainNav a.navbar-brand {
+    margin-right: 270px;
   }
-  #mainNav.navbar-shrink #navbarResponsive {
-    margin-left: 0;
-    ul#primary-menu {
-      padding-left:20px;
-    }
+}
+
+
+@media screen and (max-width: $query_b4_xs_mx) {
+  #mainNav i.site-description {
+      display:none;
   }
 }

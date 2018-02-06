@@ -50,7 +50,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* min-width */
 /* Front-page Mixins */
 /** Subpage Mixins **/
-/* DISABLED: Reset / Normalize, Typography, Elements, Forms,
+/* DISABLED: Reset / Normalize, Typography, Forms,
   Links (under Navigation) (exclude wordpress specific styles like small menu) */
 /*--------------------------------------------------------------
 # Normalize
@@ -85,35 +85,33 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0;
+	margin-top: .5em;
+	margin-bottom: .17em;
 	font-weight: 700;
 	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 }
 
-/*
-@media screen and (min-width: $query__font)	{
+@media screen and (max-width: 575px) {
 	h1 {
-		 font-size: 32.4px;
-		 // 3em
+		font-size: 2.1em;
 	}
 	h2 {
-		 font-size: 2.6em;
+		font-size: 1.8em;
 	}
 	h3 {
-		 font-size: 2.2em;
+		font-size: 1.6em;
 	}
 	h4 {
-		 font-size: 2em;
+		font-size: 1.3em;
 	}
 	h5 {
-		 font-size: 1.8em;
+		font-size: 1.1em;
 	}
 	h6 {
-		 font-size: 1.6em;
+		font-size: .9em;
 	}
-
 }
-*/
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -123,7 +121,23 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	position: relative;
+	margin: 0 0 1em;
+	background: #eee;
+	padding: 1em 2em .5em 5em;
+	font-style: italic;
+}
+
+blockquote:before {
+	position: absolute;
+	top: -.2em;
+	left: -.13em;
+	content: "“";
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-size: 12em;
+	color: white;
+	font-weight: 400;
+	line-height: 100%;
 }
 
 address {
@@ -165,7 +179,112 @@ big {
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-/* @import "elements/elements"; */
+html {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
+}
+
+body {
+	background: #fff;
+	/* Fallback for when there is no custom background color defined. */
+}
+
+blockquote, q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: .2em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+}
+
+figure {
+	margin: 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+thead th {
+	border-bottom: 2px solid #bbb;
+	padding-bottom: 0.5em;
+}
+
+td,
+th {
+	vertical-align: top;
+}
+
+th {
+	padding: 0.3em;
+	text-align: left;
+}
+
+tr {
+	border-bottom: 1px solid #eee;
+}
+
+td {
+	padding: 0.3em;
+}
+
+td:first-child,
+th:first-child {
+	padding-left: 0;
+}
+
+td:last-child,
+th:last-child {
+	padding-right: 0;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -396,10 +515,6 @@ big {
 ## Global layouts
 --------------------------------------------------------------*/
 /**  Grid Guide **/
-div.myancestor * {
-	border: 0.5px solid lightgreen;
-}
-
 /**  Basic Page CSS - Sub Pages **/
 body {
 	position: relative;
@@ -459,7 +574,7 @@ section h3.section-subheading {
 	font-style: italic;
 	margin-bottom: 75px;
 	text-transform: none;
-	font-family: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
+	font-family: "PT Serif", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 @media (min-width: 768px) {
@@ -470,7 +585,6 @@ section h3.section-subheading {
 
 .btn {
 	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
-	font-weight: 700;
 }
 
 .btn-xl {
@@ -517,166 +631,181 @@ img::-moz-selection {
 }
 
 /*--------------------------------------------------------------
-## Header
+## Posts and pages
 --------------------------------------------------------------*/
-/** Front Page Static Styles **/
-/** front Page **/
-#mainNav {
-	background-color: #212529;
+.sticky {
+	display: block;
 }
 
-#mainNav .navbar-toggler {
-	font-size: 12px;
-	right: 0;
-	padding: 13px;
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.entry-header {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.cat-links,
+.tags-links {
+	font-size: 90%;
+	font-weight: 700;
+}
+
+.cat-links a,
+.tags-links a {
+	text-decoration: none;
 	text-transform: uppercase;
+}
+
+.cat-links a {
+	color: #b51c35;
+}
+
+.cat-links a:focus, .cat-links a:hover {
+	background-color: #b51c35;
 	color: white;
-	border: 0;
-	background-color: #ee6f00;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 }
 
-#mainNav .navbar-brand {
-	color: #ee6f00;
-	font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+.tags-links a {
+	color: #e36b02;
 }
 
-#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-	color: #bb5700;
-}
-
-#mainNav .navbar-nav .nav-item .nav-link {
-	font-size: 70%;
-	font-weight: 400;
-	padding: 0.75em 0;
-	letter-spacing: 1px;
+.tags-links a:focus, .tags-links a:hover {
+	background-color: #e36b02;
 	color: white;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-	color: #ee6f00;
-}
-
-#mainNav i.site-description {
-	font-size: 14px;
-}
-
-@media (min-width: 992px) {
-	#mainNav {
-		padding-top: 25px;
-		padding-bottom: 25px;
-		-webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
-		transition: padding-top 0.3s, padding-bottom 0.3s;
-		border: none;
-		background-color: transparent;
-	}
-	#mainNav .navbar-brand {
-		font-size: 1.5em;
-		-webkit-transition: all 0.3s;
-		transition: all 0.3s;
-	}
-	#mainNav .navbar-nav .nav-item .nav-link {
-		padding: 1.1em 0.75em !important;
-	}
-	#mainNav.navbar-shrink {
-		padding-top: 0;
-		padding-bottom: 0;
-		background-color: #212529;
-	}
-	#mainNav.navbar-shrink .navbar-brand {
-		font-size: 1.25em;
-		padding: 12px 0;
-	}
-	#mainNav.navbar-shrink i.site-description {
-		display: none;
-	}
-}
-
-@media (max-width: 545px) {
-	i.site-description {
-		display: none;
-	}
+h2.entry-title,
+h1.entry-title {
+	margin: .125em 0 .25em;
+	font-size: 2.5em;
 }
 
 @media screen and (min-width: 768px) {
-	#mainNav button.navbtn {
-		margin-left: 220px;
+	h2.entry-title,
+	h1.entry-title {
+		font-size: 3em;
 	}
 }
 
-@media screen and (min-width: 1200px) {
-	#mainNav #navbarResponsive {
-		margin-left: 15%;
-	}
-	#mainNav.navbar-shrink #navbarResponsive {
-		margin-left: 0;
-	}
-	#mainNav.navbar-shrink #navbarResponsive ul#primary-menu {
-		padding-left: 20px;
-	}
+h2.entry-title a,
+h1.entry-title a {
+	text-decoration: none;
+	color: black;
 }
 
-.site-description {
-	color: #d8a36f;
+h2.entry-title a:focus, h2.entry-title a:hover,
+h1.entry-title a:focus,
+h1.entry-title a:hover {
+	border-bottom: 5px solid #b51c35;
 }
 
-.site-description small {
-	font-size: 100%;
+.entry-meta {
+	font-size: 90%;
 }
 
-header.masthead {
-	text-align: center;
-	color: white;
-	background-image: url("../framemacz/img/header-bg.jpg");
-	background-repeat: no-repeat;
-	background-attachment: scroll;
-	background-position: center center;
-	background-size: cover;
-}
-
-header.masthead .intro-text {
-	padding-top: 150px;
-	padding-bottom: 100px;
-}
-
-header.masthead .intro-text .intro-lead-in {
-	font-size: 22px;
-	font-style: italic;
-	line-height: 22px;
-	margin-bottom: 25px;
-	font-family: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
-}
-
-header.masthead .intro-text .intro-heading {
-	font-size: 50px;
+.entry-meta a {
 	font-weight: 700;
-	line-height: 50px;
-	margin-bottom: 25px;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	text-decoration: none;
+	color: black;
+	/* temporary */
 }
 
-@media (min-width: 768px) {
-	header.masthead .intro-text {
-		padding-top: 300px;
-		padding-bottom: 200px;
-	}
-	header.masthead .intro-text .intro-lead-in {
-		font-size: 40px;
-		font-style: italic;
-		line-height: 40px;
-		margin-bottom: 25px;
-		font-family: 'PT Serif',Georgia,Cambria,"Times New Roman",Times,serif;
-	}
-	header.masthead .intro-text .intro-heading {
-		font-size: 75px;
-		font-weight: 700;
-		line-height: 75px;
-		margin-bottom: 50px;
-		font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
-	}
+.entry-meta a:focus, .entry-meta a:hover {
+	color: black;
+	border-bottom: 3px solid #b51c35;
 }
 
+.posted-on::after {
+	content: "|";
+	margin: 0 .5em;
+}
+
+.comments-link::before,
+.edit-link::before {
+	content: "|";
+	margin: 0 .5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+span.cat-links {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer-menu {
+	margin: 1em 0;
+}
+
+.footer-menu ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-menu ul a {
+	display: block;
+	padding: 0.1em 0.5em;
+	color: black;
+	text-decoration: none;
+	opacity: .6;
+}
+
+.footer-menu ul a:hover, .footer-menu ul a:focus {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
 /** Sub Pages **/
 #page .div-head {
 	padding: 0;
@@ -800,6 +929,181 @@ header .inbody .navbar-brand h1 {
 
 header .inbody .navbar-brand span.subhead {
 	display: none;
+}
+
+/** Front Page Static Styles **/
+/** front Page **/
+#mainNav {
+	background-color: #212529;
+}
+
+#mainNav .navbar-toggler {
+	font-size: 12px;
+	right: 0;
+	padding: 13px;
+	text-transform: uppercase;
+	color: white;
+	border: 0;
+	background-color: #ee6f00;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+#mainNav div.divlogo .navbar-brand {
+	color: #ee6f00;
+	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+#mainNav div.divlogo .navbar-brand.active, #mainNav div.divlogo .navbar-brand:active, #mainNav div.divlogo .navbar-brand:focus, #mainNav div.divlogo .navbar-brand:hover {
+	color: #bb5700;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+	font-weight: 400;
+	padding: 0.75em 0;
+	letter-spacing: 1px;
+	color: white;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+	color: #ee6f00;
+}
+
+#mainNav i.site-description {
+	font-size: 14px;
+}
+
+@media (min-width: 992px) {
+	#mainNav {
+		padding-top: 25px;
+		padding-bottom: 25px;
+		-webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+		transition: padding-top 0.3s, padding-bottom 0.3s;
+		border: none;
+		background-color: transparent;
+	}
+	#mainNav .navbar-brand {
+		font-size: 1.2em;
+		-webkit-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#mainNav i.site-description {
+		font-size: 80%;
+	}
+	#mainNav i.site-description small {
+		font-size: 70%;
+	}
+	#mainNav .navbar-nav {
+		margin-left: 0;
+	}
+	#mainNav .navbar-nav .nav-item .nav-link {
+		padding: 1.1em 0.75em !important;
+	}
+	#mainNav .divbtn {
+		display: none;
+	}
+	#mainNav .collapse.navbar-collapse {
+		-webkit-box-flex: 0;
+		    -ms-flex: 0 1 auto;
+		        flex: 0 1 auto;
+		font-size: 90%;
+	}
+	#mainNav.navbar-shrink {
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: #212529;
+	}
+	#mainNav.navbar-shrink .navbar-brand {
+		font-size: 1.25em;
+		padding: 12px 0;
+	}
+	#mainNav.navbar-shrink i.site-description {
+		display: none;
+	}
+}
+
+@media (max-width: 545px) {
+	i.site-description {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#mainNav button.navbtn {
+		margin-left: 120px;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	#mainNav a.navbar-brand {
+		margin-right: 270px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	#mainNav i.site-description {
+		display: none;
+	}
+}
+
+.site-description {
+	color: #d8a36f;
+}
+
+.site-description small {
+	font-size: 100%;
+}
+
+header.masthead {
+	text-align: center;
+	color: white;
+	background-image: url("../framemacz/img/header-bg.jpg");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	background-size: cover;
+}
+
+header.masthead .intro-text {
+	padding-top: 150px;
+	padding-bottom: 100px;
+}
+
+header.masthead .intro-text .intro-lead-in {
+	font-size: 22px;
+	font-style: italic;
+	line-height: 22px;
+	margin-bottom: 25px;
+	font-family: "PT Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+header.masthead .intro-text .intro-heading {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 50px;
+	margin-bottom: 25px;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+	header.masthead .intro-text {
+		padding-top: 300px;
+		padding-bottom: 200px;
+	}
+	header.masthead .intro-text .intro-lead-in {
+		font-size: 40px;
+		font-style: italic;
+		line-height: 40px;
+		margin-bottom: 25px;
+		font-family: "PT Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+	}
+	header.masthead .intro-text .intro-heading {
+		font-size: 75px;
+		font-weight: 700;
+		line-height: 75px;
+		margin-bottom: 50px;
+		font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1211,27 +1515,27 @@ section#contact .form-control:focus {
 section#contact ::-webkit-input-placeholder {
 	font-weight: 700;
 	color: #ced4da;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 section#contact :-moz-placeholder {
 	font-weight: 700;
 	color: #ced4da;
 	/* Firefox 18- */
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 section#contact ::-moz-placeholder {
 	font-weight: 700;
 	color: #ced4da;
 	/* Firefox 19+ */
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 section#contact :-ms-input-placeholder {
 	font-weight: 700;
 	color: #ced4da;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 footer {
@@ -1243,7 +1547,7 @@ footer span.copyright {
 	font-size: 90%;
 	line-height: 40px;
 	text-transform: none;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 footer ul.quicklinks {
@@ -1251,7 +1555,7 @@ footer ul.quicklinks {
 	line-height: 40px;
 	margin-bottom: 0;
 	text-transform: none;
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
 ul.social-buttons {
@@ -1274,179 +1578,6 @@ ul.social-buttons li a {
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
 	background-color: #ee6f00;
-}
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-}
-
-.entry-header {
-	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
-}
-
-.cat-links,
-.tags-links {
-	font-size: 90%;
-	font-weight: 700;
-}
-
-.cat-links a,
-.tags-links a {
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-.cat-links a {
-	color: #b51c35;
-}
-
-.cat-links a:focus, .cat-links a:hover {
-	background-color: #b51c35;
-	color: white;
-}
-
-.tags-links a {
-	color: #e36b02;
-}
-
-.tags-links a:focus, .tags-links a:hover {
-	background-color: #e36b02;
-	color: white;
-}
-
-h2.entry-title,
-h1.entry-title {
-	margin: .125em 0 .25em;
-	font-size: 2.5em;
-}
-
-@media screen and (min-width: 768px) {
-	h2.entry-title,
-	h1.entry-title {
-		font-size: 3em;
-	}
-}
-
-h2.entry-title a,
-h1.entry-title a {
-	text-decoration: none;
-	color: black;
-}
-
-h2.entry-title a:focus, h2.entry-title a:hover,
-h1.entry-title a:focus,
-h1.entry-title a:hover {
-	border-bottom: 5px solid #b51c35;
-}
-
-.entry-meta {
-	font-size: 90%;
-}
-
-.entry-meta a {
-	font-weight: 700;
-	text-decoration: none;
-	color: black;
-	/* temporary */
-}
-
-.entry-meta a:focus, .entry-meta a:hover {
-	color: black;
-	border-bottom: 3px solid #b51c35;
-}
-
-.posted-on::after {
-	content: "|";
-	margin: 0 .5em;
-}
-
-.comments-link::before,
-.edit-link::before {
-	content: "|";
-	margin: 0 .5em;
-}
-
-.updated:not(.published) {
-	display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
-
-span.cat-links {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
-	/* Make sure select elements fit in widgets. */
-}
-
-.widget select {
-	max-width: 100%;
-}
-
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
-.footer-menu {
-	margin: 1em 0;
-}
-
-.footer-menu ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.footer-menu ul a {
-	display: block;
-	padding: 0.1em 0.5em;
-	color: black;
-	text-decoration: none;
-	opacity: .6;
-}
-
-.footer-menu ul a:hover, .footer-menu ul a:focus {
-	text-decoration: underline;
-	opacity: 1;
 }
 
 /*--------------------------------------------------------------

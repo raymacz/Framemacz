@@ -7,7 +7,7 @@
 }
 
 .entry-header {
-	@include font__header-font;
+	font-family: $font__header-font;
 }
 
 .cat-links,

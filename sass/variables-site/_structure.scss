@@ -7,7 +7,10 @@ $query__font: 700px;
 
 /*b4 grid  >=  < 576 768 992 1200 */
 /* max-width */
-$query_b4_xs: 575px;
+$query_b4_xs_mx: 575px;
+$query_b4_sm_mx: 767px;
+$query_b4_md_mx: 991px;
+$query_b4_lg_mx: 1199px;
 
 /* min-width */
 $query_b4_sm: 576px;

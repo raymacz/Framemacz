@@ -46,7 +46,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "mixins/mixins-master";
 
 
-/* DISABLED: Reset / Normalize, Typography, Elements, Forms,
+/* DISABLED: Reset / Normalize, Typography, Forms,
   Links (under Navigation) (exclude wordpress specific styles like small menu) */
 
 
@@ -64,7 +64,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-/* @import "elements/elements"; */
+ @import "elements/elements";
 
 /*--------------------------------------------------------------
 # Forms

@@ -2,7 +2,7 @@
 /**  Grid Guide **/
 
 div.myancestor * {
-  border: 0.5px solid lightgreen;
+  // border: 0.5px solid lightgreen;
 }
 
 
@@ -26,7 +26,6 @@ div#primary.content-area {
     padding-bottom: 40px;
     padding-top: 40px;
 }
-
 
 
 /***** front-page CSS ***/
@@ -65,7 +64,7 @@ section {
     font-style: italic;
     margin-bottom: 75px;
     text-transform: none;
-    @include font__serif;
+    font-family: $font__serif;
   }
 }
 @media(min-width:768px) {
@@ -76,8 +75,7 @@ section {
 
 // Button Styles
 .btn {
-  @include font__header-font;
-  font-weight: 700;
+   @include font__header-font;
 }
 
 .btn-xl {

@@ -7,7 +7,25 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	position: relative;
+	margin: 0 0 1em;
+	background: $color__background-pre;
+	padding: 1em 2em .5em 5em;
+	font-style: italic;
+
+
+	&:before {
+		position: absolute;
+		top: -.2em;
+		left: -.13em;
+		content: "“";
+
+		font-family: $font__header-font;
+		font-size: 12em;
+		color: white;
+		font-weight: 400;
+		line-height: 100%;
+	}
 }
 
 address {

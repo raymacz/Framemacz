@@ -24,14 +24,14 @@ header.masthead {
       font-style: italic;
       line-height: 22px;
       margin-bottom: 25px;
-      @include font__serif;
+      font-family: $font__serif;
     }
     .intro-heading {
       font-size: 50px;
       font-weight: 700;
       line-height: 50px;
       margin-bottom: 25px;
-      @include font__header-font;
+      font-family: $font__header-font;
     }
   }
 }
@@ -45,14 +45,14 @@ header.masthead {
         font-style: italic;
         line-height: 40px;
         margin-bottom: 25px;
-        @include font__serif;
+        font-family: $font__serif;
       }
       .intro-heading {
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
         margin-bottom: 50px;
-        @include font__header-font;
+        font-family: $font__header-font;
       }
     }
   }

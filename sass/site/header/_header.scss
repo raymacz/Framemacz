@@ -1,9 +1,4 @@
 
-/** Front Page Static Styles **/
-@import "navbar";
-@import "masthead";
-
-
 /** Sub Pages **/
 #page .div-head {
   padding: 0;
@@ -105,3 +100,8 @@ header .inbody .navbar-brand h1 {
 header .inbody .navbar-brand span.subhead {
   display: none;
 }
+
+
+/** Front Page Static Styles **/
+@import "navbar";
+@import "masthead";

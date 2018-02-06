@@ -4,21 +4,6 @@
 @import "../layout/global";
 
 
-/*--------------------------------------------------------------
-## Header
---------------------------------------------------------------*/
-@import "header/header";
-
-/*--------------------------------------------------------------
-## Frontpage Template Parts
---------------------------------------------------------------*/
-@import "primary/services";
-@import "primary/portfolio";
-@import "primary/timeline";
-@import "primary/team";
-@import "primary/contact";
-@import "footer/fpage-footer";
-
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -40,8 +25,22 @@
 --------------------------------------------------------------*/
 @import "secondary/widgets";
 
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 @import "footer/footer";
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+@import "header/header";
+
+/*--------------------------------------------------------------
+## Frontpage Template Parts
+--------------------------------------------------------------*/
+@import "primary/services";
+@import "primary/portfolio";
+@import "primary/timeline";
+@import "primary/team";
+@import "primary/contact";
+@import "footer/fpage-footer";

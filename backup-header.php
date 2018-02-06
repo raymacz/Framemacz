@@ -30,22 +30,21 @@
         <div class="container">
           <div class="row">
             <!-- col-5 col-md-5 col-lg-3 col-xl-3 mr-auto -->
-            <div class=" col-8 col-md-5 col-lg-3 col-xl-3 mr-auto">
-              <div class="col-auto divlogo">
-                <?php the_custom_logo(); ?>
-                <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>
-                <?php
-                $description = get_bloginfo( 'description', 'display' );
-                if ( $description || is_customize_preview() ) : ?>
-                  <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
-                <?php endif; ?>
-              </div> <!-- col-auto -->
-          </div> <!-- mr-auto -->
-          <div class="col-auto divbtn">
-            <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              Menu <i class="fa fa-bars"></i>
-            </button>
-          </div>
+            <div class=" col-4 col-md-3 col-lg-3 col-xl-3 mr-auto">
+              <?php the_custom_logo(); ?>
+              <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>
+              <?php
+              $description = get_bloginfo( 'description', 'display' );
+              if ( $description || is_customize_preview() ) : ?>
+                <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
+              <?php endif; ?>
+            </div>
+             <!-- col-auto -->
+            <div class="col-auto">
+              <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu <i class="fa fa-bars"></i>
+              </button>
+            </div>
                 <?php
                   //  Bootstrap 4 multilevel dropdown inside navigation
                 $disp_menu = array(
