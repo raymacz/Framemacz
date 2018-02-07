@@ -22,7 +22,7 @@ get_header(); ?>
 			?>
 
 			<!-- TO DO: need alignment post navigation -->
-			  <?php the_post_navigation(); ?>
+			  <?php framemacz_post_navigation(); ?>
 
 
 			<?php

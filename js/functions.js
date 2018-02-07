@@ -1,7 +1,8 @@
 (function($){
 
-	// Add classes to add Full Bleed styling to Images
+	// remove style attribute that misallgns images
 	$('figure.wp-caption.aligncenter').removeAttr('style');
+	// Add classes to add Full Bleed styling to Images
 	$('img.aligncenter').wrap('<figure class="centered-image" />');
 
 	/*

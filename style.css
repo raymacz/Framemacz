@@ -50,8 +50,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* min-width */
 /* Front-page Mixins */
 /** Subpage Mixins **/
-/* DISABLED: Reset / Normalize, Typography, Forms,
-  Links (under Navigation) (exclude wordpress specific styles like small menu) */
+/* DISABLED: Reset / Normalize, Typography, Forms (exclude wordpress specific styles like small menu) */
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -295,7 +294,45 @@ th:last-child {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-/* @import "links"; */
+a {
+	color: royalblue;
+}
+
+a:visited {
+	color: purple;
+}
+
+a:hover, a:focus, a:active {
+	color: #b51c35;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover, a:active {
+	outline: 0;
+}
+
+/** added 404.php, content-none.php **/
+.page-content a,
+.entry-content a,
+.entry-summary a,
+.comment-content a {
+	text-decoration: none;
+	border-bottom: 3px solid #b51c35;
+}
+
+.page-content a:focus, .page-content a:hover,
+.entry-content a:focus,
+.entry-content a:hover,
+.entry-summary a:focus,
+.entry-summary a:hover,
+.comment-content a:focus,
+.comment-content a:hover {
+	color: #b51c35;
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -328,8 +365,8 @@ th:last-child {
 	top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.main-navigation ul ul li.focus > ul,
+.main-navigation ul ul li:hover > ul {
 	left: 100%;
 }
 
@@ -337,8 +374,8 @@ th:last-child {
 	width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.main-navigation ul li.focus > ul,
+.main-navigation ul li:hover > ul {
 	left: auto;
 }
 
@@ -353,8 +390,8 @@ th:last-child {
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.main-navigation.toggled ul,
+.menu-toggle {
 	display: block;
 }
 
@@ -367,28 +404,166 @@ th:last-child {
 	}
 }
 
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
-	margin: 0 0 1.5em;
+.comment-navigation,
+.paging-navigation,
+.post-navigation,
+.posts-navigation {
+	padding: 2em 0;
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	overflow: hidden;
 }
 
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
+.comment-navigation a,
+.paging-navigation a,
+.post-navigation a,
+.posts-navigation a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	padding: 1em;
+	border: 1px solid #cccccc;
+	color: black;
 }
 
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
+.comment-navigation a:focus, .comment-navigation a:hover,
+.paging-navigation a:focus,
+.paging-navigation a:hover,
+.post-navigation a:focus,
+.post-navigation a:hover,
+.posts-navigation a:focus,
+.posts-navigation a:hover {
+	color: white;
+	border-color: #665;
+	background: #665;
+}
+
+.nav-links {
+	margin: 0 auto;
+	padding: 0 0.4em;
+}
+
+.nav-previous {
+	padding-bottom: 1em;
+}
+
+.nav-previous a {
 	text-align: right;
-	width: 50%;
+	border-bottom-left-radius: 0.5rem;
+	border-top-left-radius: 3.5rem;
 }
 
+.nav-next a {
+	text-align: left;
+	border-bottom-right-radius: 0.5rem;
+	border-top-right-radius: 3.5rem;
+}
+
+@media screen and (min-width: 900px) {
+	.nav-links {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;
+		        align-items: stretch;
+		padding: 0;
+	}
+	.comment-navigation .nav-next,
+	.comment-navigation .nav-previous,
+	.post-navigation .nav-next,
+	.post-navigation .nav-previous,
+	.posts-navigation .nav-next,
+	.posts-navigation .nav-previous {
+		float: left;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: stretch;
+		    -ms-flex-align: stretch;
+		        align-items: stretch;
+		width: 48%;
+		font-size: 0.8rem;
+	}
+	.comment-navigation .nav-next,
+	.post-navigation .nav-next,
+	.posts-navigation .nav-next {
+		float: right;
+	}
+	.nav-previous {
+		padding-bottom: 0;
+	}
+}
+
+.post-navigation .meta-nav {
+	display: block;
+}
+
+@media screen and (min-width: 30em) {
+	.post-navigation {
+		padding-bottom: 1em;
+	}
+}
+
+.post-navigation .post-title {
+	font-size: 1.2em;
+	font-weight: 700;
+	border-bottom: 3px solid #b51c35;
+}
+
+.post-navigation a:focus .post-title,
+.post-navigation a:hover .post-title {
+	border-bottom-color: white;
+}
+
+.pagination {
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.pagination .nav-links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+	padding: 0.5em 1em;
+	background: white;
+}
+
+.pagination a {
+	text-decoration: none;
+}
+
+.pagination a:focus, .pagination a:hover {
+	color: white;
+	background: #e36b02;
+}
+
+.pagination .current {
+	font-weight: 600;
+	color: #e36b02;
+}
+
+.pagination .prev .icon {
+	margin-right: 1em;
+}
+
+.pagination .next .icon {
+	margin-left: 1em;
+}
+
+/*--------------------------------------------------------------
+## Header Navigation
+--------------------------------------------------------------*/
 /* Bootstrap 4 multilevel dropdown inside navigation*/
 .dropdown-submenu {
 	position: relative;
@@ -589,6 +764,7 @@ section h3.section-subheading {
 
 .btn-xl {
 	font-size: 18px;
+	font-weight: 700;
 	padding: 20px 40px;
 }
 
@@ -1616,8 +1792,16 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	max-width: 100%;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-size: 90%;
+	color: #666666;
+	text-align: center;
+}
+
+.wp-caption a {
+	color: inherit;
 }
 
 .wp-caption img[class*="wp-image-"] {
@@ -1627,11 +1811,19 @@ object {
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: .5em 0 1.5em 1em;
 }
 
-.wp-caption-text {
-	text-align: center;
+@media screen and (min-width: 600px) {
+	.wp-caption .wp-caption-text {
+		margin-left: 2em;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.wp-caption .wp-caption-text {
+		margin-left: 0;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1646,6 +1838,32 @@ object {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
+	padding: 1em;
+}
+
+.gallery-item img {
+	display: block;
+}
+
+.gallery-item a {
+	display: inline-block;
+	border-bottom: none;
+}
+
+.gallery-item a:hover, .gallery-item a:focus {
+	border-bottom: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.gallery-item a:hover img, .gallery-item a:focus img {
+	border-color: #b51c35;
+}
+
+.gallery-item a img {
+	padding: .5em;
+	margin: 0 auto;
+	border: 1px solid #fff;
 }
 
 .gallery-columns-2 .gallery-item {
@@ -1682,6 +1900,9 @@ object {
 
 .gallery-caption {
 	display: block;
+	margin: 0;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	border: none;
 }
 
 /*--------------------------------------------------------------
