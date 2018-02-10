@@ -17,6 +17,24 @@ function framemacz_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if (is_multi_author()) {
+		$classes[] = 	'group-blog';
+	}
+
+	// Adds a class whether a sidebar is in uses
+
+	if (is_active_sidebar( 'sidebar-1' )) {
+		$classes[] = 'has-sidebar';
+	} else {
+		$classes[] = 'no-sidebar';
+	}
+
+// Ads a class for front page Yaf_Route_Static
+
+if (is_front_page()) {
+	$classes[] = 'is-frontpage';
+}
+
 	return $classes;
 }
 add_filter( 'body_class', 'framemacz_body_classes' );

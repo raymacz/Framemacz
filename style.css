@@ -64,11 +64,11 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
+	color: #000;
 	font-family: sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 1.5;
+	line-height: 1.4;
 }
 
 @media screen and (min-width: 700px) {
@@ -78,8 +78,8 @@ textarea {
 	select,
 	optgroup,
 	textarea {
-		font-size: 20px;
-		font-size: 1.25rem;
+		font-size: 18px;
+		font-size: 1.125rem;
 	}
 }
 
@@ -112,7 +112,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	mmargin-top: .4em;
+	margin-bottom: .8em;
 }
 
 dfn, cite, em, i {
@@ -148,7 +149,7 @@ pre {
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 18.75px;
 	font-size: 1.17188rem;
-	line-height: 1.6;
+	line-height: 1.5;
 	margin-bottom: 1.6em;
 	max-width: 100%;
 	overflow: auto;
@@ -295,11 +296,11 @@ th:last-child {
 ## Links
 --------------------------------------------------------------*/
 a {
-	color: royalblue;
+	color: #053658;
 }
 
 a:visited {
-	color: purple;
+	color: #609;
 }
 
 a:hover, a:focus, a:active {
@@ -433,8 +434,8 @@ a:hover, a:active {
 .posts-navigation a:focus,
 .posts-navigation a:hover {
 	color: white;
-	border-color: #665;
-	background: #665;
+	border-color: #697179;
+	background: #697179;
 }
 
 .nav-links {
@@ -712,38 +713,59 @@ div#primary.content-area {
 }
 
 /***** front-page CSS ***/
-body {
+body.is-frontpage {
 	overflow-x: hidden;
 	font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-p {
+.is-frontpage p {
 	line-height: 1.75;
 }
 
-a {
+.is-frontpage h1, .is-frontpage h2, .is-frontpage h3, .is-frontpage h4, .is-frontpage h5, .is-frontpage h6 {
+	color: #000;
+}
+
+.is-frontpage div.timeline-image h4 {
+	color: white;
+}
+
+.is-frontpage footer span.copyright,
+.is-frontpage footer a.designer {
 	color: #ee6f00;
 }
 
-a:hover {
+.is-frontpage footer a {
+	color: #e36b02;
+}
+
+.is-frontpage footer a:hover {
 	color: #bb5700;
 }
 
-.text-primary {
+.is-frontpage a.btn {
+	color: #f8f9fa;
+}
+
+.is-frontpage a.btn:hover {
+	color: #dae0e5;
+}
+
+.is-frontpage .text-primary {
 	color: #ee6f00 !important;
 }
 
-section {
+.is-frontpage section {
 	padding: 100px 0;
 }
 
-section h2.section-heading {
+.is-frontpage section h2.section-heading {
 	font-size: 40px;
 	margin-top: 0;
 	margin-bottom: 15px;
 }
 
-section h3.section-subheading {
+.is-frontpage section h3.section-subheading {
 	font-size: 16px;
 	font-weight: 400;
 	font-style: italic;
@@ -753,56 +775,56 @@ section h3.section-subheading {
 }
 
 @media (min-width: 768px) {
-	section {
+	.is-frontpage section {
 		padding: 150px 0;
 	}
 }
 
-.btn {
+.is-frontpage .btn {
 	font-family: 'Source Sans Pro',"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
 }
 
-.btn-xl {
+.is-frontpage .btn-xl {
 	font-size: 18px;
 	font-weight: 700;
 	padding: 20px 40px;
 }
 
-.btn-primary {
+.is-frontpage .btn-primary {
 	background-color: #ee6f00;
 	border-color: #ee6f00;
 }
 
-.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+.is-frontpage .btn-primary:active, .is-frontpage .btn-primary:focus, .is-frontpage .btn-primary:hover {
 	background-color: #c85d00 !important;
 	border-color: #c85d00 !important;
 	color: white;
 }
 
-.btn-primary:active, .btn-primary:focus {
+.is-frontpage .btn-primary:active, .is-frontpage .btn-primary:focus {
 	-webkit-box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 	        box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 }
 
-::-moz-selection {
+.is-frontpage ::-moz-selection {
 	background: #ee6f00;
 	text-shadow: none;
 }
 
-::selection {
+.is-frontpage ::selection {
 	background: #ee6f00;
 	text-shadow: none;
 }
 
-img::-moz-selection {
+.is-frontpage img::-moz-selection {
 	background: transparent;
 }
 
-img::selection {
+.is-frontpage img::selection {
 	background: transparent;
 }
 
-img::-moz-selection {
+.is-frontpage img::-moz-selection {
 	background: transparent;
 }
 
@@ -907,6 +929,7 @@ h1.entry-title a:hover {
 	display: none;
 }
 
+aside#secondary,
 .page-content,
 .entry-content,
 .entry-summary {
@@ -938,11 +961,46 @@ span.cat-links {
 --------------------------------------------------------------*/
 .widget {
 	margin: 0 0 1.5em;
+	padding: 0;
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	/* Make sure select elements fit in widgets. */
 }
 
 .widget select {
 	max-width: 100%;
+}
+
+section.widget .card-header {
+	margin: 0;
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+	section.widget .card-body input.search-field.form-control.ds-input {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}
+
+section.widget .card-body input.search-submit.d-md-none.btn.btn-secondary {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+section.widget .card-body ul {
+	padding: 0.7em 0 0;
+	list-style-type: none;
+	margin: 0;
+}
+
+section.widget .card-body ul li {
+	display: block;
+	line-height: 2em;
+}
+
+section.widget .card-body ul li a {
+	list-style-type: none;
 }
 
 /*--------------------------------------------------------------
@@ -1138,6 +1196,15 @@ header .inbody .navbar-brand span.subhead {
 	color: #bb5700;
 }
 
+#mainNav div.row.btnrow .navbar-nav .nav-item ul.sub-menu a.dropdown-item {
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+#mainNav div.row.btnrow .navbar-nav .nav-item ul.sub-menu a.dropdown-item:active, #mainNav div.row.btnrow .navbar-nav .nav-item ul.sub-menu a.dropdown-item:hover {
+	background-color: #ee6f00;
+	color: white;
+}
+
 #mainNav div.row.btnrow .navbar-nav .nav-item .nav-link {
 	font-weight: 400;
 	padding: 0.75em 0;
@@ -1146,7 +1213,7 @@ header .inbody .navbar-brand span.subhead {
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
-#mainNav div.row.btnrow .navbar-nav .nav-item .nav-link.active, #mainNav div.row.btnrow .navbar-nav .nav-item .nav-link:hover {
+#mainNav div.row.btnrow .navbar-nav .nav-item .nav-link:active, #mainNav div.row.btnrow .navbar-nav .nav-item .nav-link:hover {
 	color: #ee6f00;
 }
 

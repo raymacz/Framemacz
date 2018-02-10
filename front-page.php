@@ -15,22 +15,22 @@
 get_header();
 
  // Services
-get_template_part( 'template-parts/content', 'services' );
+get_template_part( 'template-parts/static-parts/content', 'services' );
 
  // Portfolio Grid
-get_template_part( 'template-parts/content', 'portfolio' );
+get_template_part( 'template-parts/static-parts/content', 'portfolio' );
 
 // About
-get_template_part( 'template-parts/content', 'about' );
+get_template_part( 'template-parts/static-parts/content', 'about' );
 
 // Team
-get_template_part( 'template-parts/content', 'team' );
+get_template_part( 'template-parts/static-parts/content', 'team' );
 
 // Clients
-get_template_part( 'template-parts/content', 'clients' );
+get_template_part( 'template-parts/static-parts/content', 'clients' );
 
 // Contact
-get_template_part( 'template-parts/content', 'contact' );
+get_template_part( 'template-parts/static-parts/content', 'contact' );
 
 
 

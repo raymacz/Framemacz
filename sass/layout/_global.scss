@@ -1,63 +1,78 @@
-
 /**  Grid Guide **/
-
 div.myancestor * {
   // border: 0.5px solid lightgreen;
 }
-
-
 /**  Basic Page CSS - Sub Pages **/
-
-body{
+body {
   position: relative;
 }
 
-
 .site-content {
-	padding: 1em;
-
-	@media screen and (min-width: $query__small) {
-		padding: 2em;
-	}
+  padding: 1em;
+  @media screen and (min-width: $query__small) {
+    padding: 2em;
+  }
 }
 
 div#primary.content-area {
-    /* padding: 40px; */
-    padding-bottom: 40px;
-    padding-top: 40px;
+  /* padding: 40px; */
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
-
-
 /***** front-page CSS ***/
-
 // Global styling for this template
-body {
+body.is-frontpage {
   overflow-x: hidden;
   @include font__body-font;
 }
 
-p {
+.is-frontpage p {
   line-height: 1.75;
 }
 
-a {
-  color: $primary;
+.is-frontpage {
+  h1, h2, h3, h4, h5, h6 {
+    color: $black;
+  }
+  div.timeline-image h4 {
+    color: white;
+  }
+  footer span.copyright,
+  footer a.designer{
+    color: $primary;  
+  }
+
+}
+
+.is-frontpage footer a {
+  color: $color__text-main;
+
   &:hover {
     color: darken($primary, 10%);
   }
 }
 
-.text-primary {
+.is-frontpage a.btn {
+  color: $gray-100;
+
+  &:hover {
+    color: darken($gray-100, 10%);
+  }
+}
+
+.is-frontpage .text-primary {
   color: $primary !important;
 }
 
-section {
+.is-frontpage section {
   padding: 100px 0;
+
   h2.section-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
   }
+
   h3.section-subheading {
     font-size: 16px;
     font-weight: 400;
@@ -68,25 +83,26 @@ section {
   }
 }
 @media(min-width:768px) {
-  section {
+  .is-frontpage section {
     padding: 150px 0;
   }
 }
-
 // Button Styles
-.btn {
-   @include font__header-font;
+
+.is-frontpage .btn {
+  @include font__header-font;
 }
 
-.btn-xl {
+.is-frontpage .btn-xl {
   font-size: 18px;
   font-weight: 700;
   padding: 20px 40px;
 }
 
-.btn-primary {
+.is-frontpage .btn-primary {
   background-color: $primary;
   border-color: $primary;
+
   &:active,
   &:focus,
   &:hover {
@@ -94,27 +110,28 @@ section {
     border-color: darken($primary, 7.5%) !important;
     color: white;
   }
+
   &:active,
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(254, 209, 55,.5) !important;
   }
 }
-
 // Highlight color customization
-::-moz-selection {
+
+.is-frontpage ::-moz-selection {
   background: $primary;
   text-shadow: none;
 }
 
-::selection {
+.is-frontpage ::selection {
   background: $primary;
   text-shadow: none;
 }
 
-img::selection {
+.is-frontpage img::selection {
   background: transparent;
 }
 
-img::-moz-selection {
+.is-frontpage img::-moz-selection {
   background: transparent;
 }

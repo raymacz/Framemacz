@@ -5,7 +5,8 @@
   background-color: $gray-900;
 
   div.row.btnrow {
-    width:  100%;
+    width: 100%;
+
     .navbar-toggler {
       font-size: 12px;
       right: 0;
@@ -20,7 +21,6 @@
     div.divlogo {
       .navbar-brand {
         width: 100%;
-
         color: $primary;
         font-family: $font__script;
 
@@ -35,17 +35,26 @@
 
     .navbar-nav {
       .nav-item {
-        .nav-link {
-          font-weight: 400;
-          padding: 0.75em 0;
-          letter-spacing: 1px;
-          color: white;
+        ul.sub-menu a.dropdown-item {
           font-family: $font__header-font;
-
-          &.active,
+          &:active,
           &:hover {
-            color: $primary;
+            background-color: $primary;
+            color: white;
           }
+        }
+        .nav-link {
+            font-weight: 400;
+            padding: 0.75em 0;
+            letter-spacing: 1px;
+            color: white;
+            font-family: $font__header-font;
+
+            &:active,
+            &:hover {
+              // background-color: $primary;
+              color: $primary;
+           }
         }
       }
     }
@@ -120,7 +129,6 @@
     display: none;
   }
 }
-
 @media screen and (max-width: $query_b4_xs_mx) {
   #mainNav {
     div.row.btnrow {

@@ -195,6 +195,15 @@ function framemacz_widgets_init()
     		'before_title'  => '<h2 class="widget-title">',
     		'after_title'   => '</h2>',
 	) );
+    register_sidebar( array(
+    		'name'          => esc_html__( 'Backup Inactive Widgets', 'framemacz' ),
+    		'id'            => 'sidebar-2',
+    		'description'   => esc_html__( 'Copy code of inactive widgets here and paste to PHP Code widget.', 'framemacz' ),
+    		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</section>',
+    		'before_title'  => '<h2 class="widget-title">',
+    		'after_title'   => '</h2>',
+	) );
 
 }
 add_action('widgets_init', 'framemacz_widgets_init');
@@ -232,8 +241,6 @@ function framemacz_scripts()
     wp_enqueue_style('framemacz-style-fawesome', get_template_directory_uri()  . '/vendor/font-awesome/css/font-awesome.min.css');
     // style.css
     wp_enqueue_style('framemacz-style', get_stylesheet_uri()); // style.css
-    // agency css
-     wp_enqueue_style('framemacz-style-agency', get_template_directory_uri()  . '/agency.css');
 
     // bootstrap 4 requirement
     wp_enqueue_script('framemacz-script-tether', '//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js', array('jquery'), '20171225', true);
