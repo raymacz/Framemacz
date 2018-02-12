@@ -270,6 +270,39 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script>
+
+// start troubleshoot b4nav.js   021218
+
+
+// Nav dropdown functionality
+
+  // $('ul a.dropdown-toggle').on('click', function(e) {
+     $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+    //var $nav_ctnr = $('nav div.collapse.navbar-collapse');
+    var $nav_ctnr = $('#navbarResponsive');
+    //console.log(e.currentTarget);
+    if (!$(this).next().hasClass('show')) {
+      $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+    }
+    var $subMenu = $(this).next(".dropdown-menu");
+    $subMenu.toggleClass('show');
+    console.log(e);
+    $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+      $('.dropdown-submenu .show').removeClass("show");
+    });
+      $nav_ctnr.addClass('show');    // rbtm
+    return false;
+  });
+
+
+// end -----------------------------
+
+
+
+
+
+
+
     var $childrenli = $('.navbar-nav.mr-auto>li'),
       $mrauto = $('.navbar-nav.mr-auto');
     // initialize to bootstrap classes - rbtm

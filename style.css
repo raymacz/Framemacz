@@ -42,6 +42,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 /* general global variables */
+/** new variables rbtm **/
 /* $primary: #fed136 !default; */
 /* custom w/ backup default fonts*/
 /* default */
@@ -954,6 +955,77 @@ span.cat-links {
 
 .bypostauthor {
 	display: block;
+}
+
+/**added rbtm **/
+.comments-area {
+	width: 100%;
+	margin: 3em 0;
+	padding: 1.5em 0;
+	border-top: 1px solid #cccccc;
+}
+
+.comments-area .comments-title {
+	margin-bottom: 2em;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.comments-area .comment-list {
+	padding: 0;
+	margin: 0 15px;
+	list-style-type: none;
+}
+
+.comments-area .comment-body {
+	border: 1px solid #cccccc;
+	padding: 0 0 20px 20px;
+	margin-bottom: 1.5em;
+	margin-left: 0px;
+	border-top-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+
+.comments-area .comment-body footer.comment-meta {
+	position: relative;
+	border-top: 1px solid #fbe8dd;
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 80%;
+	padding: 10px 0;
+	height: 100%;
+	margin: 20px 0 20px 40px;
+	text-align: left;
+	background-color: #fbebe280;
+}
+
+.comments-area .comment-body footer.comment-meta div.comment-author {
+	margin-left: 5%;
+}
+
+.comments-area .comment-body footer.comment-meta div.comment-author img.avatar {
+	position: absolute;
+	border-radius: 40px;
+	left: -48px;
+	top: -5px;
+}
+
+.comments-area .comment-body footer.comment-meta div.comment-metadata {
+	margin-left: 5%;
+}
+
+.comments-area .comment-body .comment-content a,
+.comments-area .comment-body .comment-meta a,
+.comments-area .comment-body .reply a {
+	text-decoration: none;
+	border: none;
+}
+
+.comments-area .comment-body .comment-content a:focus, .comments-area .comment-body .comment-content a:hover,
+.comments-area .comment-body .comment-meta a:focus,
+.comments-area .comment-body .comment-meta a:hover,
+.comments-area .comment-body .reply a:focus,
+.comments-area .comment-body .reply a:hover {
+	border-bottom: 3px solid #b51c35;
 }
 
 /*--------------------------------------------------------------

@@ -1,6 +1,78 @@
 .comment-content a {
 	word-wrap: break-word;
 }
+
 .bypostauthor {
 	display: block;
+}
+/**added rbtm **/
+.comments-area {
+	width: 100%;
+	margin: 3em 0;
+	padding: 1.5em 0;
+	border-top: 1px solid $color__comment_border;
+	// text-decoration: none;
+	.comments-title {
+		margin-bottom: 2em;
+		font-size: 1.5em;
+		font-weight: 700;
+	}
+
+	.comment-list {
+		padding: 0;
+		margin: 0 15px;
+		list-style-type: none;
+	}
+
+	.comment-body {
+		border: 1px solid $color__comment_border;
+		padding: 0 0 20px 20px;
+		margin-bottom: 1.5em;
+		margin-left: 0px;
+		// border-radius: 30px;
+		border-top-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+
+		footer.comment-meta {
+			position: relative;
+			// margin-left: 40px;
+			border-top: 1px solid #fbe8dd;
+			font-family: $font__body-font;
+			font-size: 80%;
+			padding: 10px 0;
+			height: 100%;
+			margin: 20px 0 20px 40px;
+			text-align: left;
+			background-color: #fbebe280;
+
+			div.comment-author {
+				margin-left: 5%;
+
+				img.avatar {
+					position: absolute;
+					border-radius: 40px;
+					left: -48px;
+					top: -5px;
+				}
+			}
+
+			div.comment-metadata {
+				margin-left: 5%;
+			}
+		}
+
+		.comment-content,
+		.comment-meta,
+		.reply {
+			a {
+				text-decoration: none;
+				border: none;
+
+				&:focus,
+				&:hover {
+					border-bottom: 3px solid $color__interactive;
+				}
+			}
+		}
+	}
 }

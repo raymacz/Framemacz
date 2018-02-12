@@ -261,7 +261,7 @@ function framemacz_scripts()
     wp_enqueue_script('framemacz-script-b4nav', get_template_directory_uri() . '/js/b4nav.js', array('jquery'), '20151215', true);
 
     // Custom scripts - Agency
-    wp_enqueue_script('framemacz-script-agency', get_template_directory_uri() . '/js/agency.js', array('jquery'), '20151215', true);
+     wp_enqueue_script('framemacz-script-agency', get_template_directory_uri() . '/js/agency.js', array('jquery'), '20151215', true);
 
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
