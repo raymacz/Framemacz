@@ -12,11 +12,7 @@
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <?php// framemacz_post_thumbnail(); ?>
           <header class="entry-header">
-              <?php
-                if (!is_active_sidebar('sidebar-1')):
-                  framemacz_entry_footer();
-                endif;
-              ?>
+              <?php framemacz_entry_footer(); ?>
               <?php
                 if (is_singular()) :
                   the_title('<h1 class="entry-title">', '</h1>');
@@ -55,12 +51,18 @@
               'before' => '<div class="page-links">' . esc_html__('Pages:', 'framemacz'),
               'after'  => '</div>',
             ));
+            // ----------------- test php snippet
+            //------------------
             framemacz_post_navigation();
             // If comments are open or we have at least one comment, load up the comment template.
             // TO DO: need alignment comments
             if (comments_open() || get_comments_number()) :
               comments_template();
-            endif; ?>
+            endif; 
+                 $x=comments_open();
+                $y= get_comments_number();
+                $z=1; 
+                ?>
           </div> <!-- entry-content -->
         <?php  get_sidebar(); ?>
         </div>  <!-- row -->

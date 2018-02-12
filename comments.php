@@ -50,6 +50,9 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+                                        'avatar_size' => 64,
+                                        'per_page' => 30,
+                                        'reverse_top_level' => true
 				) );
 			?>
 		</ol><!-- .comment-list -->
