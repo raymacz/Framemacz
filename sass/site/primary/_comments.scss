@@ -4,6 +4,7 @@
 
 .bypostauthor {
 	display: block;
+
 }
 /**added rbtm **/
 .comments-area {
@@ -53,6 +54,8 @@
 					border-radius: 40px;
 					left: -48px;
 					top: -5px;
+					border: 5px solid $color__interactive_two;
+					box-sizing: content-box;
 				}
 			}
 
@@ -75,4 +78,56 @@
 			}
 		}
 	}
+
+	.comment-reply-title {
+			margin-bottom: 1em;
+			text-align: left;
+	}
+
+	.comment-form {
+		font-family: $font__body-font;
+		line-height: 1.2em;
+		margin-left: 15px;
+		.form-submit {
+			text-align: right;
+	}
+
+	label {
+		width: 33%;
+		color: $color__interactive_two;
+		display: block;
+		font-style: italic;
+		padding-bottom: .4em;
+	}
+	span.required {
+		color: $color__interactive;
+	}
+	p.form-submit input {
+			padding: .4em .8em;
+			font-size: 80%;
+			color: #000;
+			line-height: 1.2em;
+			text-decoration: none;
+			border: 1px solid #c3c3c3;
+			font-weight: 700;
+			border-radius: 7px;
+			margin-right: 15px;
+
+			&:hover,
+			&:focus {
+				color: #fff;
+				background: $color__interactive;
+				border-color: $color__interactive;
+			}
+
+
+	}
+
+
+	}
+
+
+
 }
+
+/* Comment Form */

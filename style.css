@@ -566,7 +566,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Header Navigation
 --------------------------------------------------------------*/
-/*//Copy this css*/
+/** navbar b4 **/
 .navbar-nav li.dropdown.show {
 	position: relative;
 }
@@ -728,11 +728,11 @@ body.is-frontpage {
 	color: #ee6f00;
 }
 
-.is-frontpage footer a {
+footer a {
 	color: #e36b02;
 }
 
-.is-frontpage footer a:hover {
+footer a:hover {
 	color: #bb5700;
 }
 
@@ -999,6 +999,9 @@ span.cat-links {
 	border-radius: 40px;
 	left: -48px;
 	top: -5px;
+	border: 5px solid #e36b02;
+	-webkit-box-sizing: content-box;
+	        box-sizing: content-box;
 }
 
 .comments-area .comment-body footer.comment-meta div.comment-metadata {
@@ -1020,6 +1023,52 @@ span.cat-links {
 	border-bottom: 3px solid #b51c35;
 }
 
+.comments-area .comment-reply-title {
+	margin-bottom: 1em;
+	text-align: left;
+}
+
+.comments-area .comment-form {
+	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.2em;
+	margin-left: 15px;
+}
+
+.comments-area .comment-form .form-submit {
+	text-align: right;
+}
+
+.comments-area .comment-form label {
+	width: 33%;
+	color: #e36b02;
+	display: block;
+	font-style: italic;
+	padding-bottom: .4em;
+}
+
+.comments-area .comment-form span.required {
+	color: #b51c35;
+}
+
+.comments-area .comment-form p.form-submit input {
+	padding: .4em .8em;
+	font-size: 80%;
+	color: #000;
+	line-height: 1.2em;
+	text-decoration: none;
+	border: 1px solid #c3c3c3;
+	font-weight: 700;
+	border-radius: 7px;
+	margin-right: 15px;
+}
+
+.comments-area .comment-form p.form-submit input:hover, .comments-area .comment-form p.form-submit input:focus {
+	color: #fff;
+	background: #b51c35;
+	border-color: #b51c35;
+}
+
+/* Comment Form */
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
