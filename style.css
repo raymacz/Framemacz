@@ -566,24 +566,16 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Header Navigation
 --------------------------------------------------------------*/
-/* Bootstrap 4 multilevel dropdown inside navigation*/
-.dropdown-submenu {
+/*//Copy this css*/
+.navbar-nav li.dropdown.show {
 	position: relative;
 }
 
-.dropdown-submenu a::after {
+.navbar-nav li.dropdown.show a.dropdown-toggle::after {
 	-webkit-transform: rotate(-90deg);
 	        transform: rotate(-90deg);
-	position: absolute;
 	right: 6px;
 	top: .8em;
-}
-
-.dropdown-submenu .dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-left: .1rem;
-	margin-right: .1rem;
 }
 
 /*--------------------------------------------------------------

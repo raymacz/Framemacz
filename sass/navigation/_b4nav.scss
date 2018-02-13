@@ -1,18 +1,11 @@
-/* Bootstrap 4 multilevel dropdown inside navigation*/
-.dropdown-submenu {
-  position: relative;
-}
+/*//Copy this css*/
+.navbar-nav li.dropdown.show {
+   position: relative;
+ }
 
-.dropdown-submenu a::after {
-  transform: rotate(-90deg);
-  position: absolute;
-  right: 6px;
-  top: .8em;
-}
-
-.dropdown-submenu .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-left: .1rem;
-  margin-right: .1rem;
-}
+ .navbar-nav li.dropdown.show a.dropdown-toggle::after {
+   transform: rotate(-90deg);
+   // position: absolute;
+   right: 6px;
+   top: .8em;
+ }

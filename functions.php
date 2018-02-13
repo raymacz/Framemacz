@@ -223,11 +223,14 @@ add_action('widgets_init', 'framemacz_widgets_init');
  function replace_jquery() {
  	if (!is_admin()) { // comment out the next two lines to load the local copy of jQuery
  		wp_deregister_script('jquery');
- 		wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js', false, '3.3.1');
+ 		// wp_register_script('jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', true, '3.3.1');
+ 		wp_register_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', true, '3.2.1');
  		wp_enqueue_script('jquery');
  	}
  }
-//add_action('init', 'replace_jquery');
+
+ //jQuery
+ add_action( 'wp_enqueue_scripts', 'replace_jquery' );
 
 
 function framemacz_scripts()
@@ -258,7 +261,7 @@ function framemacz_scripts()
     wp_enqueue_script('framemacz-script-easing', get_template_directory_uri() . '/vendor/jquery-easing/jquery.easing.min.js', array(jquery), '20151215', true);
 
     // Custom scripts - Bootstrap 4 multilevel dropdown inside navigation
-    wp_enqueue_script('framemacz-script-b4nav', get_template_directory_uri() . '/js/b4nav.js', array('jquery'), '20151215', true);
+    wp_enqueue_script('framemacz-script-b4nav', get_template_directory_uri() . '/js/b4multinav.js', array('jquery'), '20151215', true);
 
     // Custom scripts - Agency
      wp_enqueue_script('framemacz-script-agency', get_template_directory_uri() . '/js/agency.js', array('jquery'), '20151215', true);
