@@ -38,10 +38,13 @@ if (! function_exists('framemacz_setup')) :
 
         /*
          * Enable support for Post Thumbnails on posts and pages.
-         *
+         *post-thumbnails
          * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
          */
         add_theme_support('post-thumbnails');
+        // add custom image sizes
+        add_image_size( 'framemacz-full-bleed', 2000, 1200, true );
+        add_image_size( 'framemacz-index-image', 1140, 550, true );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(

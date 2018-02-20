@@ -1,3 +1,5 @@
+/** posts and pages **/
+
 .sticky {
 	display: block;
 }
@@ -107,4 +109,41 @@ aside#secondary,
 
 span.cat-links {
     display: block;
+}
+
+
+.full-bleed {
+	width: 100vw;
+	max-height: 1200px;
+	margin-top: 1em;
+	margin-left: -1em;
+	border-top: 1px solid hsl(0, 0%, 90%);
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	overflow: hidden;
+
+	@media screen and (min-width: $query_b4_sm) {
+		margin-left: calc( ((-100vw + #{$query_b4_sm})/2) - 2.05em );
+	}
+
+	@media screen and (min-width: 700px) {
+		margin-left: calc( ((-100vw + #{$query_b4_sm})/2) - 1.85em );
+	}
+
+	@media screen and (min-width: $query_b4_md) {
+		 margin-left: calc( ((-100vw + #{$query_b4_md})/2) - 2.15em );
+	}
+
+	@media screen and (min-width: $query_b4_lg) {
+		margin-top: 1.5em;
+		margin-left: calc( ((-100vw + #{$query_b4_lg})/2) - 1.7em );
+	}
+	// stretches across screen ignoring max-width
+	@media screen and (min-width: $query_b4_xl) {
+		 margin-right: calc( ((-100vw + #{$query_b4_xl})/2) - 2.5em );
+		 margin-left: calc( ((-100vw + #{$query_b4_xl})/2) - 2.5em );
+	}
+	img {
+		display: block;
+		margin: 0 auto;
+	}
 }

@@ -15,10 +15,11 @@ function framemacz_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
+		$classes[] = 'archive-view';
 	}
 
 	if (is_multi_author()) {
-		$classes[] = 	'group-blog';
+		$classes[] = 'group-blog';
 	}
 
 	// Adds a class whether a sidebar is in uses

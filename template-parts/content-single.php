@@ -26,6 +26,12 @@
                 </div> <!-- .entry-meta -->
                 <?php endif; ?>
           </header><!-- .entry-header -->
+          <?php if (has_post_thumbnail()) {  ?>
+            	<figure class="featured-image full-bleed">
+        		<?php the_post_thumbnail('framemacz-full-bleed'); ?>
+            	</figure><!-- .featured-image full-bleed -->
+        	<?php } ?>
+
         <div class="row">
           <?php if (is_active_sidebar('sidebar-1')): ?>
              <div class="entry-content col-lg-8 ">
@@ -58,10 +64,10 @@
             // TO DO: need alignment comments
             if (comments_open() || get_comments_number()) :
               comments_template();
-            endif; 
+            endif;
                  $x=comments_open();
                 $y= get_comments_number();
-                $z=1; 
+                $z=1;
                 ?>
           </div> <!-- entry-content -->
         <?php  get_sidebar(); ?>

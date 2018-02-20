@@ -11,9 +11,7 @@
 
 ?>
 
-      	<?php// dynamic_sidebar('footer-1'); ?>
-
-
+      	<?php get_sidebar('footer'); ?>
 
 		<!-- Footer -->
 	    <footer id="colophon" class="site-footer" role="contentinfo">

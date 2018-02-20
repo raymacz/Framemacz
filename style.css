@@ -824,6 +824,7 @@ footer a:hover {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+/** posts and pages **/
 .sticky {
 	display: block;
 }
@@ -936,6 +937,53 @@ aside#secondary,
 
 span.cat-links {
 	display: block;
+}
+
+.full-bleed {
+	width: 100vw;
+	max-height: 1200px;
+	margin-top: 1em;
+	margin-left: -1em;
+	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 576px) {
+	.full-bleed {
+		margin-left: calc( ((-100vw + 576px)/2) - 2.05em);
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.full-bleed {
+		margin-left: calc( ((-100vw + 576px)/2) - 1.85em);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.full-bleed {
+		margin-left: calc( ((-100vw + 768px)/2) - 2.15em);
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.full-bleed {
+		margin-top: 1.5em;
+		margin-left: calc( ((-100vw + 992px)/2) - 1.7em);
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.full-bleed {
+		margin-right: calc( ((-100vw + 1200px)/2) - 2.5em);
+		margin-left: calc( ((-100vw + 1200px)/2) - 2.5em);
+	}
+}
+
+.full-bleed img {
+	display: block;
+	margin: 0 auto;
 }
 
 /*--------------------------------------------------------------
