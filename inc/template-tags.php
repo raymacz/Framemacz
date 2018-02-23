@@ -113,6 +113,11 @@ if ( ! function_exists( 'framemacz_post_thumbnail' ) ) :
  * element when on single views.
  */
 function framemacz_post_thumbnail() {
+
+
+
+
+
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -121,31 +126,24 @@ function framemacz_post_thumbnail() {
 	?>
         <div class="container-fluid">
             <figure class="figure featured-image index-image">
-                                <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
-                                        <?php
-                                        the_post_thumbnail('framemacz-index-img');
-                                        ?>
-                                </a>
-                        </figure><!-- .featured-image full-bleed -->
+                  <a href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark">
+                              <?php  the_post_thumbnail('framemacz-index-img');  ?>
+                 </a>
+          </figure><!-- .featured-image full-bleed -->
         </div>
-
-
-
-
-
-
         <?php else : ?>
-
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
-		?>
-	</a>
-
+					<figure class="featured-image index-image">
+							<a class="post-thumbnail" href="<?php echo esc_url( get_permalink() ) ?>" rel="bookmark" aria-hidden="true">
+							<!-- <a href="<?php// echo esc_url( get_permalink() ) ?>" rel="bookmark" aria-hidden="true"> -->
+								<?php
+								the_post_thumbnail('framemacz-index-img', array(
+									'alt' => the_title_attribute( array(
+										'echo' => false,
+									) ),
+								));
+								?>
+							</a>
+						</figure><!-- .featured-image full-bleed -->
 	<?php endif; // End is_singular().
 }
 endif;
@@ -166,3 +164,20 @@ function framemacz_post_navigation() {
 			'<span class="post-title">%title</span>',
 	) );
 }
+
+/**
+ * Change the excerpt more string
+ */
+ function framemacz_excerpt_more( $more ) {
+     return '&hellip;';
+     // return ' >>';
+ }
+ add_filter( 'excerpt_more', 'framemacz_excerpt_more' );
+
+ /**
+  * Filter excerpt length to 100 words.
+  */
+ function framemacz_excerpt_length( $length ) {
+ 	return 80;
+ }
+ add_filter( 'excerpt_length', 'framemacz_excerpt_length');

@@ -1,0 +1,55 @@
+/** Archive Pages**/
+.archive-view {
+  background-color: #ffeee0;
+
+  .post {
+    background-color: white;
+
+    figure {
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-bottom: none;
+
+      a > img {
+        margin: 0 auto;
+        display: block;
+        overflow: hidden;
+
+        &:focus,
+        &:hover {
+          outline: 0;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.post__content {
+  padding: 2em 2em 3em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: calc(0.25rem - 1px);
+  position: relative;
+}
+
+.continue-reading {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-family: $font__header-font;
+
+  a {
+    display: block;
+    padding: 0.5em 1em;
+    font-size: 90%;
+    text-decoration: none;
+    // background: hsl(0, 0%, 85%);
+    background: $color__buttons;
+    color: white;
+
+    &:focus,
+    &:hover {
+      color: white;
+      background: $color__interactive;
+    }
+  }
+}

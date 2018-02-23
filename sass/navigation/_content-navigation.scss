@@ -1,3 +1,7 @@
+/** content-navigation /*/
+
+/** default _score main navigation START **/
+
 .main-navigation {
 	clear: both;
 	display: block;
@@ -65,7 +69,9 @@
 	.current_page_ancestor > a,
 	.current_page_item > a {}
 }
+
 /* Small menu. */
+
 .main-navigation.toggled ul,
 .menu-toggle {
 	display: block;
@@ -80,13 +86,14 @@
 	}
 }
 
+/** default _score main navigation END **/
+
 .comment-navigation,
 .paging-navigation,
 .post-navigation,
 .posts-navigation {
 	padding: 2em 0;
 	font-family: $font__body-font;
-	// text-align: left;
 	overflow: hidden;
 
 	a {
@@ -94,14 +101,14 @@
 		width: 100%;
 		text-decoration: none;
 		padding: 1em;
-		border: 1px solid hsl(0, 0%, 80%);
+		border-bottom: none;
 		color: black;
 
 		&:focus,
 		&:hover {
 			color: white;
 			border-color: $color__text-input;
-			background: $color__text-input;
+			background: $color__interactive;
 		}
 	}
 }
@@ -118,6 +125,8 @@
 		text-align: right;
 		border-bottom-left-radius: 0.5rem;
 		border-top-left-radius: 3.5rem;
+		background-color: $color__buttons;
+		color: white;
 	}
 }
 
@@ -126,6 +135,8 @@
 		text-align: left;
 		border-bottom-right-radius: 0.5rem;
 		border-top-right-radius: 3.5rem;
+		background-color: $color__buttons;
+		color: white;
 	}
 }
 @media screen and (min-width: $query__medium) {
@@ -150,6 +161,7 @@
 
 		.nav-next {
 			float: right;
+			text-align: right;
 		}
 	}
 
@@ -169,12 +181,12 @@
 	.post-title {
 		font-size: 1.2em;
 		font-weight: 700;
-		border-bottom: 3px solid $color__interactive;
 	}
 
 	a:focus .post-title,
 	a:hover .post-title {
-		border-bottom-color: white;
+		border-bottom: 3px solid white;
+		// border-bottom-color: white;
 	}
 }
 
@@ -191,6 +203,8 @@
 	span {
 		padding: 0.5em 1em;
 		background: white;
+		vertical-align: middle;
+		line-height: 2em;
 	}
 
 	a {
@@ -199,13 +213,13 @@
 		&:focus,
 		&:hover {
 			color: white;
-			background: $color__interactive_two;
+			background: $color__interactive;
 		}
 	}
 
 	.current {
 		font-weight: 600;
-		color: $color__interactive_two;
+		color: $color__interactive;
 	}
 
 	.prev .icon {

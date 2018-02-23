@@ -21,9 +21,7 @@ section.widget {
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 			}
-
 		}
-
 
 		input.search-submit.d-md-none.btn.btn-secondary {
 			border-top-left-radius: 0;
@@ -41,7 +39,17 @@ section.widget {
 
 				a {
 					list-style-type: none;
+					text-decoration: none;
+					&:hover {
+						border-bottom: 3px solid $color__interactive;
+					}
 				}
+			}
+		}
+		a {
+			text-decoration: none;
+			&:hover {
+				border-bottom: 3px solid $color__interactive;
 			}
 		}
 	}

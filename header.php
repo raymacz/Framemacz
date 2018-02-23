@@ -97,3 +97,5 @@
         </div>
       </header>
       <?php endif; // End header image check.?>
+
+      <div id="content" class="site-content container">
