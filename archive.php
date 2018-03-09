@@ -9,7 +9,11 @@
 
 get_header(); ?>
 <div class="row">
-	<div id="primary" class="content-area col-lg-8">
+		<?php if (is_active_sidebar('sidebar-1')): ?>
+       <div id="primary" class="content-area col-lg-8">
+    <?php else: ?>
+       <div id="primary" class="content-area col-lg-12 ">
+    <?php endif; ?>
 		<main id="main" class="site-main">
 
 		<?php
