@@ -12,6 +12,7 @@
 ?>
   <!doctype html>
   <html <?php language_attributes(); ?>>
+  <!-- <html <?php //language_attributes(); ?> class="no-svg"> -->
 
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">

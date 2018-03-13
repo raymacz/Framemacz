@@ -22,6 +22,18 @@ body {
 .archive-view.has-sidebar #main {
   margin-bottom: 30px;
 }
+/** search result **/
+div.alert-success {
+  text-align: center;
+  h2.page-title {
+    margin-top: 0;
+  }
+}
+
+.not-found h2.page-title {
+    text-align: center;
+    margin-top: 0;
+}
 
 
 /***** front-page CSS ***/

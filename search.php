@@ -8,18 +8,24 @@
  */
 
 get_header(); ?>
-
-	<section id="primary" class="content-area">
+<div class="row">
+	<?php if (is_active_sidebar('sidebar-1')): ?>
+		 <div id="primary" class="content-area col-lg-8">
+	<?php else: ?>
+		 <div id="primary" class="content-area col-lg-12 ">
+	<?php endif; ?>
 		<main id="main" class="site-main">
 
 		<?php
 		if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php
+				<div class="alert-success">
+					<h2 class="page-title"><?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'framemacz' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
+					printf( esc_html__( 'Search Results for: “%s”', 'framemacz' ), '<span>' . get_search_query() . '</span>' );
+					?></h2>
+				</div>
 			</header><!-- .page-header -->
 
 			<?php
@@ -35,7 +41,11 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination(array(
+				'prev_text' => framemacz_get_svg( array( 'icon' => 'arrow-long-left', 'fallback' => true ) ) . __( 'Newer', 'framemacz' ),
+  			'next_text' => __( 'Older', 'framemacz' ) . framemacz_get_svg( array( 'icon' => 'arrow-long-right' , 'fallback' => true ) ),
+				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'framemacz' ) . '</span>',
+			));
 
 		else :
 
@@ -44,8 +54,9 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- #primary -->
+	<?php get_sidebar(); ?>
+</div> <!-- row -->
 
 <?php
-get_sidebar();
 get_footer();

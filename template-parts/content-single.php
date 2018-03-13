@@ -24,11 +24,11 @@
                 <div class="entry-meta">
                   <?php framemacz_posted_on(); ?>
                 </div> <!-- .entry-meta -->
-                <?php endif; ?>
+              <?php endif; ?>
           </header><!-- .entry-header -->
           <?php if (has_post_thumbnail()) {  ?>
             	<figure class="featured-image full-bleed">
-        		<?php the_post_thumbnail('framemacz-full-bleed'); ?>
+        	    	<?php the_post_thumbnail('framemacz-full-bleed'); ?>
             	</figure><!-- .featured-image full-bleed -->
         	<?php } ?>
 
@@ -61,13 +61,11 @@
             //------------------
             framemacz_post_navigation();
             // If comments are open or we have at least one comment, load up the comment template.
-            // TO DO: need alignment comments
             if (comments_open() || get_comments_number()) :
               comments_template();
             endif;
-                 $x=comments_open();
-                $y= get_comments_number();
-                $z=1;
+                // $x=comments_open();
+                // $y= get_comments_number();
                 ?>
           </div> <!-- entry-content -->
         <?php  get_sidebar(); ?>

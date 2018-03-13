@@ -12,6 +12,10 @@
 	font-family: $font__header-font;
 }
 
+.not-found .post__content a {
+    border-bottom: none;
+}
+
 .cat-links,
 .tags-links {
 	font-size: 90%;

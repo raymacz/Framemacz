@@ -40,17 +40,31 @@ section.widget {
 				a {
 					list-style-type: none;
 					text-decoration: none;
+
 					&:hover {
 						border-bottom: 3px solid $color__interactive;
 					}
 				}
+
 			}
 		}
+
 		a {
 			text-decoration: none;
+
 			&:hover {
 				border-bottom: 3px solid $color__interactive;
 			}
 		}
+
+		select {
+			border-radius: 3px;
+			color: #697179;
+			/* border: 1px solid #ccc; */
+			/* line-height: 31em; */
+			font-size: 1em;
+			font-family: $font__body-font;
+		}
+
 	}
 }

@@ -216,7 +216,73 @@
   <!-- Meta -->
 
 
+<!-- Most Used Categories -->
 
+<div id="my-most=rec-cat" class="card bg-light mb-3">
+  <h5 class="card-header">Most Used Categories</h5>
+  <div class="card-body">
+      <?php
+    $args = array(
+                'taxonomy' => 'category',
+                'orderby' => 'count',
+                'order' => 'DESC',
+                'hide_empty' => true,
+                'number' => 10,
+                'count' => false,
+                'fields' => 'all',
+                'hierarchical' => true,
+                'show_count' => 1,
+								'title_li'   => '',
+        );
+            $terms = get_terms($args);
+            //print_r($terms);
+            if (! empty($terms) && ! is_wp_error($terms)) {
+                $count = count($terms);
+                $i = 0;
+                $term_list = '<p class="my_term-archive">';
+                foreach ($terms as $term) {
+                    $i++;
+                    $term_list .= '<a href="' . esc_url(get_term_link($term)) . '" alt="' . esc_attr(sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name)) . '"> '. $term->name .' </a><span> ('.$term->count.') </span>';
+                    if ($count != $i) {
+                        $term_list .= ' &middot; ';
+                    } else {
+                        $term_list .= '</p>';
+                    }
+                }
+                echo $term_list;
+            }
+    ?>
+  </div>
+</div>
+
+<!-- Most Used Categories -->
+
+<!-- Archives -->
+
+<div id="my-monthly-archives" class="card bg-light mb-3">
+  <h5 class="card-header">Archives</h5>
+  <div class="card-body">
+    <?php
+    $archive_content = '<p>' . sprintf( esc_html__( 'Try searching in the monthly archives. %1$s', 'framemacz' ), convert_smilies( ':)' ) ) . '</p>';
+    $instance = array('title' => ' ', 'text' => 'Text', 'dropdown' => 1, 'count'    => 1,  );
+     the_widget( 'WP_Widget_Archives', $instance, "after_title=</h2>$archive_content"); ?>
+  </div>
+</div>
+
+<!-- Archives -->
+
+<!-- Tags -->
+
+<div id="my-tags" class="card bg-light mb-3">
+  <h5 class="card-header">Tags</h5>
+  <div class="card-body">
+    <?php
+    $instance = array('title' => ' ', 'text' => 'Text', 'count' => 1 );
+     the_widget( 'WP_Widget_Tag_Cloud', $instance); ?>
+  </div>
+</div>
+
+<!-- Tags -->
 
 
   <!-- navbar 1 -->

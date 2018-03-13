@@ -13,8 +13,8 @@
       <?php framemacz_post_thumbnail(); ?>
       <div class="post__content">
         <header class="entry-header">
-          <?php  framemacz_entry_footer(); ?>
-          <?php
+          <?php  framemacz_entry_footer();
+
           if (is_single()) :
             the_title('<h1 class="entry-title">', '</h1>');
             else :
