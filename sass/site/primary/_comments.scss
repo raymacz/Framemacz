@@ -33,18 +33,18 @@
 		// border-radius: 30px;
 		border-top-left-radius: 30px;
 		border-bottom-right-radius: 30px;
-
+		background-color: white;
 		footer.comment-meta {
 			position: relative;
 			// margin-left: 40px;
-			border-top: 1px solid #fbe8dd;
+			border-top: 1px solid $color__bg_comment;
 			font-family: $font__body-font;
 			font-size: 80%;
 			padding: 10px 0;
 			height: 100%;
 			margin: 20px 0 20px 40px;
 			text-align: left;
-			background-color: #fbebe280;
+			background-color: $color__bg_comment;
 
 			div.comment-author {
 				margin-left: 5%;

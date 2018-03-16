@@ -66,7 +66,7 @@ select,
 optgroup,
 textarea {
 	color: #000;
-	font-family: sans-serif;
+	font-family: "PT Serif", Georgia, Cambria, "Times New Roman", Times, serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.4;
@@ -194,7 +194,7 @@ html {
 }
 
 body {
-	background: #fff;
+	background: #ffeee0;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -798,6 +798,20 @@ body {
 	margin: 0 auto;
 }
 
+body.home {
+	background: none !important;
+}
+
+/* added important to override customizer background */
+body.single {
+	background: none !important;
+}
+
+/* added important to override customizer background */
+.single .site-content {
+	background-color: white;
+}
+
 .archive-view.has-sidebar #secondary {
 	margin: 0;
 }
@@ -818,6 +832,14 @@ div.alert-success h2.page-title {
 .not-found h2.page-title {
 	text-align: center;
 	margin-top: 0;
+}
+
+.site-footer {
+	background-color: #1c1400;
+}
+
+.site-footer .footer-text {
+	color: white;
 }
 
 /***** front-page CSS ***/
@@ -950,7 +972,6 @@ footer a:hover {
 }
 
 .archive-view .post figure, .archive-view .page figure {
-	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-bottom: none;
 }
 
@@ -967,7 +988,6 @@ footer a:hover {
 
 .post__content {
 	padding: 2em 2em 3em;
-	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-radius: calc(0.25rem - 1px);
 	position: relative;
 }
@@ -1138,8 +1158,50 @@ header .inbody .navbar-brand span.subhead {
 }
 
 /** Front Page Static Styles **/
+/** global navbar **/
+.site-branding {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
+	min-height: 65px;
+}
+
+.site-branding .custom-logo-link {
+	display: block;
+	margin-right: 1em;
+	min-width: 65px;
+}
+
+.site-branding .custom-logo-link img {
+	display: block;
+	height: 65px;
+	width: auto;
+}
+
+.site-branding__text {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	height: 65px;
+}
+
 /** front Page **/
 #mainNav {
+	min-height: 75px;
 	background-color: #212529;
 }
 
@@ -1148,6 +1210,10 @@ header .inbody .navbar-brand span.subhead {
 }
 
 #mainNav div.row.btnrow .navbar-toggler {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
 	font-size: 12px;
 	right: 0;
 	padding: 13px;
@@ -1158,14 +1224,14 @@ header .inbody .navbar-brand span.subhead {
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
-#mainNav div.row.btnrow div.divlogo .navbar-brand {
+#mainNav div.row.btnrow .site-title a {
 	width: 100%;
-	color: #ee6f00;
 	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
 }
 
-#mainNav div.row.btnrow div.divlogo .navbar-brand.active, #mainNav div.row.btnrow div.divlogo .navbar-brand:active, #mainNav div.row.btnrow div.divlogo .navbar-brand:focus, #mainNav div.row.btnrow div.divlogo .navbar-brand:hover {
+#mainNav div.row.btnrow .site-title a.active, #mainNav div.row.btnrow .site-title a:active, #mainNav div.row.btnrow .site-title a:focus, #mainNav div.row.btnrow .site-title a:hover {
 	color: #bb5700;
+	text-decoration: none;
 }
 
 #mainNav div.row.btnrow .navbar-nav .nav-item ul.sub-menu a.dropdown-item {
@@ -1193,6 +1259,10 @@ header .inbody .navbar-brand span.subhead {
 	font-size: 14px;
 }
 
+.site-title a {
+	color: #ee6f00;
+}
+
 @media (min-width: 992px) {
 	#mainNav {
 		padding-top: 25px;
@@ -1209,9 +1279,6 @@ header .inbody .navbar-brand span.subhead {
 	}
 	#mainNav i.site-description {
 		font-size: 92%;
-	}
-	#mainNav i.site-description small {
-		font-size: 70%;
 	}
 	#mainNav .navbar-nav {
 		margin-left: 0;
@@ -1521,6 +1588,7 @@ span.cat-links {
 	margin-left: 0;
 	border-top-left-radius: 30px;
 	border-bottom-right-radius: 30px;
+	background-color: white;
 }
 
 .comments-area .comment-body footer.comment-meta {
@@ -1532,7 +1600,7 @@ span.cat-links {
 	height: 100%;
 	margin: 20px 0 20px 40px;
 	text-align: left;
-	background-color: #fbebe280;
+	background-color: #fbe8dd;
 }
 
 .comments-area .comment-body footer.comment-meta div.comment-author {
@@ -1707,7 +1775,7 @@ section.widget .card-body select {
 .footer-menu ul a {
 	display: block;
 	padding: 0.1em 0.5em;
-	color: black;
+	color: lightsalmon;
 	text-decoration: none;
 	opacity: .6;
 }
@@ -2159,6 +2227,7 @@ footer span.copyright {
 	line-height: 40px;
 	text-transform: none;
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	color: white;
 }
 
 footer ul.quicklinks {
@@ -2223,11 +2292,6 @@ embed,
 iframe,
 object {
 	max-width: 100%;
-}
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
 }
 
 /*--------------------------------------------------------------

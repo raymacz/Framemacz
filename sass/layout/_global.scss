@@ -14,6 +14,11 @@ body {
  // padding-top: 40px;
 }
 
+body.home { background: none !important; } /* added important to override customizer background */
+body.single { background: none !important; } /* added important to override customizer background */
+.single .site-content { background-color: white; }
+
+
 .archive-view.has-sidebar #secondary {
   margin: 0;
   // margin: 30px 0 0 0;
@@ -35,6 +40,13 @@ div.alert-success {
     margin-top: 0;
 }
 
+.site-footer {
+    background-color: $color__bg_footer;
+}
+
+.site-footer .footer-text {
+    color: white;
+}
 
 /***** front-page CSS ***/
 // Global styling for this template

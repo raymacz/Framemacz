@@ -32,24 +32,24 @@
         <div class="container">
           <div class="row btnrow">
             <!-- <div class=" col-8 col-md-5 col-lg-3 col-xl-3 mr-auto"> -->
-            <div class=" col-6 col-md-5 col-lg-3 col-xl-3 mr-auto">
-              <div class="col-auto divlogo">
-                <?php the_custom_logo(); ?>
-                <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url(home_url('#page-top')); ?>" rel="home">
-                  <?php bloginfo('name'); ?>
-                </a>
-                <?php
-                $description = get_bloginfo('description', 'display');
-                if ($description || is_customize_preview()) : ?>
+            <div class="col-9 col-md-8 col-lg-3 col-xl-5 mr-auto">
+              <div class="col-auto divlogo site-branding">
+                <?php the_custom_logo(); $description = get_bloginfo('description', 'display'); ?>
+                <div class="site-branding__text">
+                  <!-- <a class="site-title navbar-brand js-scroll-trigger"  -->
+                  <h2 class="site-title"><a class="js-scroll-trigger" href="<?php echo esc_url(home_url('#page-top')); ?>" rel="home"> <?php bloginfo('name'); ?>  </a></h2>
+                  <?php
+                  if ($description || is_customize_preview()) : ?>
                   <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
-                  <?php endif; ?>
+                <?php endif; ?>
+                </div>
               </div>  <!-- col-auto divlogo -->
             </div>  <!-- mr-auto -->
             <div class="col-auto divbtn">
               <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               Menu <i class="fa fa-bars"></i>
             </button>
-            </div>
+            </div>   <!-- divbtn -->
             <?php
                   //  Bootstrap 4 multilevel dropdown inside navigation
                 $disp_menu = array(
@@ -68,10 +68,8 @@
                 }
                     wp_nav_menu($disp_menu);
                 ?>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
+          </div>  <!-- row -->
+        </div> <!-- container -->
       </nav>
 
       <!-- Header -->

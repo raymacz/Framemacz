@@ -1,13 +1,43 @@
+/** global navbar **/
+.site-branding {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto;
+  min-height: 65px;
+
+  .custom-logo-link {
+    display: block;
+    margin-right: 1em;
+    min-width: 65px;
+
+    img {
+      display: block;
+      height: 65px;
+      width: auto;
+    }
+  }
+}
+
+.site-branding__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 65px;
+}
 /** front Page **/
 // Styling for the navbar
 
 #mainNav {
+  min-height: 75px;
   background-color: $gray-900;
 
   div.row.btnrow {
     width: 100%;
 
     .navbar-toggler {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
       font-size: 12px;
       right: 0;
       padding: 13px;
@@ -18,10 +48,9 @@
       font-family: $font__header-font;
     }
 
-    div.divlogo {
-      .navbar-brand {
+    .site-title {
+      a {
         width: 100%;
-        color: $primary;
         font-family: $font__script;
 
         &.active,
@@ -29,6 +58,7 @@
         &:focus,
         &:hover {
           color: darken($primary, 10%);
+          text-decoration: none;
         }
       }
     }
@@ -37,24 +67,26 @@
       .nav-item {
         ul.sub-menu a.dropdown-item {
           font-family: $font__header-font;
+
           &:active,
           &:hover {
             background-color: $primary;
             color: white;
           }
         }
-        .nav-link {
-            font-weight: 400;
-            padding: 0.75em 0;
-            letter-spacing: 1px;
-            color: white;
-            font-family: $font__header-font;
 
-            &:active,
-            &:hover {
-              // background-color: $primary;
-              color: $primary;
-           }
+        .nav-link {
+          font-weight: 400;
+          padding: 0.75em 0;
+          letter-spacing: 1px;
+          color: white;
+          font-family: $font__header-font;
+
+          &:active,
+          &:hover {
+            // background-color: $primary;
+            color: $primary;
+          }
         }
       }
     }
@@ -64,6 +96,9 @@
     }
   }
 }
+
+.site-title a { color: $primary; }
+
 @media(min-width:$query_b4_lg) {
   #mainNav {
     padding-top: 25px;
@@ -83,10 +118,6 @@
 
     i.site-description {
       font-size: 92%;
-
-      small {
-        font-size: 70%;
-      }
     }
 
     .navbar-nav {

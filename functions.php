@@ -85,6 +85,9 @@ if (! function_exists('framemacz_setup')) :
             'flex-width'  => true,
             'flex-height' => true,
         ));
+
+        /* Editor styles */ /// 092 Add editor styles to match front-end styles
+	      add_editor_style( array( 'inc/editor-styles.css', framemacz_fonts_url() ) );
     }
 endif;
 add_action('after_setup_theme', 'framemacz_setup');

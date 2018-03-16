@@ -1,12 +1,12 @@
 /** Archive Pages**/
 .archive-view {
-  background-color: #ffeee0;
+  background-color: $color__background-body;
   .post, .page {
     background-color: white;
     position: relative;
 
     figure {
-      border: 1px solid rgba(0, 0, 0, 0.125);
+      // border: 1px solid rgba(0, 0, 0, 0.125);
       border-bottom: none;
 
       a > img {
@@ -26,7 +26,7 @@
 
 .post__content {
   padding: 2em 2em 3em;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  // border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: calc(0.25rem - 1px);
   position: relative;
 }

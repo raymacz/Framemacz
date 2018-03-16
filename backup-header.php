@@ -12,6 +12,7 @@
 ?>
   <!doctype html>
   <html <?php language_attributes(); ?>>
+  <!-- <html <?php //language_attributes(); ?> class="no-svg"> -->
 
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -22,30 +23,34 @@
 
   <body id="page-top" <?php body_class(); ?>>
     <div id="page" class="site myancestor">
-      <a class="skip-link screen-reader-text" href="#content"> <?php esc_html_e('Skip to content', 'framemacz'); ?> </a>
+      <a class="skip-link screen-reader-text" href="#content">
+        <?php esc_html_e('Skip to content', 'framemacz'); ?> </a>
 
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 
         <div class="container">
-          <div class="row">
-            <!-- col-5 col-md-5 col-lg-3 col-xl-3 mr-auto -->
-            <div class=" col-4 col-md-3 col-lg-3 col-xl-3 mr-auto">
-              <?php the_custom_logo(); ?>
-              <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url( home_url( '#page-top' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a>
-              <?php
-              $description = get_bloginfo( 'description', 'display' );
-              if ( $description || is_customize_preview() ) : ?>
-                <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
-              <?php endif; ?>
-            </div>
-             <!-- col-auto -->
-            <div class="col-auto">
-              <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu <i class="fa fa-bars"></i>
-              </button>
-            </div>
+          <div class="row btnrow">
+            <!-- <div class=" col-8 col-md-5 col-lg-3 col-xl-3 mr-auto"> -->
+            <div class=" col-6 col-md-5 col-lg-3 col-xl-3 mr-auto">
+              <div class="col-auto divlogo">
+                <?php the_custom_logo(); ?>
+                <a class="navbar-brand js-scroll-trigger" href="<?php echo esc_url(home_url('#page-top')); ?>" rel="home">
+                  <?php bloginfo('name'); ?>
+                </a>
                 <?php
+                $description = get_bloginfo('description', 'display');
+                if ($description || is_customize_preview()) : ?>
+                  <i class="site-description"><small><?php echo $description; /* WPCS: xss ok. */ ?></small></i>
+                  <?php endif; ?>
+              </div>  <!-- col-auto divlogo -->
+            </div>  <!-- mr-auto -->
+            <div class="col-auto divbtn">
+              <button class="navbar-toggler navbar-toggler-right navbtn" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu <i class="fa fa-bars"></i>
+            </button>
+            </div>
+            <?php
                   //  Bootstrap 4 multilevel dropdown inside navigation
                 $disp_menu = array(
                     'menu'						 => 'Main Menu',
@@ -59,36 +64,39 @@
                   );
 
                 if (!is_front_page()) {
-                  $disp_menu['theme_location'] = 'menu-3';
-
+                    $disp_menu['theme_location'] = 'menu-3';
                 }
                     wp_nav_menu($disp_menu);
                 ?>
-         </div>  <!-- row -->
-        </div>  <!-- container -->
+          </div>
+          <!-- row -->
+        </div>
+        <!-- container -->
       </nav>
 
       <!-- Header -->
 
-        <?php if (!(get_header_image() && is_front_page())) : ?>
-          <!-- .header-image -->
-       <div class="container-fluid div-head" >
+      <?php if (!(get_header_image() && is_front_page())) : ?>
+      <!-- .header-image -->
+      <div class="container-fluid div-head">
         <header id="masthead" class=" home_header site-header" class role="banner">
-           <figure class=" header-image">
-          <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+          <figure class=" header-image">
+            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
             <img src="<?php header_image(); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="header image">
           </a>
-        </figure>
+          </figure>
         </header>
-       </div>
+      </div>
       <?php else: ?>
-        <header id="masthead" class="masthead site-header" role="banner">
-          <div class="container">
-            <div class="intro-text">
-              <div class="intro-lead-in">Welcome To Our Website!</div>
-              <div class="intro-heading text-uppercase">It's Nice Of You To Visit...</div>
-              <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
-            </div>
+      <header id="masthead" class="masthead site-header" role="banner">
+        <div class="container">
+          <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Our Website!</div>
+            <div class="intro-heading text-uppercase">It's Nice Of You To Visit...</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
           </div>
-        </header>
-        <?php endif; // End header image check.?>
+        </div>
+      </header>
+      <?php endif; // End header image check.?>
+
+      <div id="content" class="site-content container">

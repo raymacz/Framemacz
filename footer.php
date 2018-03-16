@@ -18,7 +18,7 @@
 	       <div class="container">
 	         <div class="row">
 	           <div class="col-md-4">
-							 <div><?php printf(esc_html__('Powered by: %1$s ', 'framemacz'), '<a class="designer" href="https://webmacz.ml/" rel="designer">WebMacZ & Sons</a>'); ?></div>
+							 <div class="footer-text"><?php printf(esc_html__('Powered by: %1$s ', 'framemacz'), '<a class="designer" href="https://webmacz.ml/" rel="designer">WebMacZ & Sons</a>'); ?></div>
 							 <ul class="list-inline quicklinks">
 								<li class="list-inline-item">
 									<a href="#">Privacy Policy</a>
@@ -52,7 +52,7 @@
 						 <div class="col-md-4">
 							 <!-- <span class="copyright">Copyright &copy; 2018</span> -->
 						   <span class="copyright"><?php printf(esc_html__('%1$s %2$s', 'framemacz'), 'Copyright: &copy;', '2018'); ?></span>
-						   <div><?php printf(esc_html__('%1$s Theme by %2$s', 'framemacz'), 'Framemacz', '<a class="designer" href="#" rel="designer">Raymacz</a>'); ?></div>
+						   <div class="footer-text"><?php printf(esc_html__('%1$s Theme by %2$s', 'framemacz'), 'Framemacz', '<a class="designer" href="#" rel="designer">Raymacz</a>'); ?></div>
 						 </div>	 <!-- col-md-4 -->
 	         </div> <!-- row -->
 	       </div> <!-- container -->

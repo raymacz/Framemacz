@@ -33,7 +33,13 @@
           <?php
           $read_more = sprintf(  wp_kses( __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'framemacz'),
             array( 'span' => array( 'class' => array(), ), )), get_the_title() );
-            the_excerpt();
+            $display_length= get_theme_mod('length_setting');
+            if ($display_length==="excerpt") {
+                the_excerpt();
+            } else {
+                the_content();
+            }
+            
           //the_content($read_more);
           //wp_link_pages(array('before' => '<div class="page-links">' . esc_html__('Pages:', 'framemacz'), 'after'  => '</div>', ));
           ?>

@@ -34,9 +34,20 @@
 					'position': 'relative'
 				} );
 				$( '.site-title a, .site-description' ).css( {
-					'color': to
+					 'color': to
 				} );
 			}
 		} );
 	} );
+
+	// Background color for header and footer.
+	wp.customize( 'theme_bg_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-footer' ).css( {
+				'background-color': to
+			} );
+		} );
+	} );
+
+
 } )( jQuery );
