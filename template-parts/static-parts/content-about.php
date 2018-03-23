@@ -7,76 +7,76 @@
  * @package FrameMacz
  */
 
-?>
+//get frontpage id
+$post_id = get_option( 'page_on_front' ); //  $frontpage_id
+
+//Initialize Custom Fields
+$t1 = get_field('about_section_title', $post_id);
+$d1 = get_field('about_section_description', $post_id);
+
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'about' ),
+	'post_status'            => array( 'publish' ),
+	'nopaging'               => true,
+	'order'                  => 'ASC',
+	'orderby'                => 'date',
+);
+
+// The Query
+$query = new WP_Query( $args );
+
+
+// check & print values
+//var_dump( $query->posts  );
+//echo 'foundpost: '.$query->found_posts;
+//echo 'postcount: '.$query->post_count;
+
+$pcount = 0; // initialize object count  ?>
 
 <!-- About -->
 	 <section id="about">
 		 <div class="container">
 			 <div class="row">
 				 <div class="col-lg-12 text-center">
-					 <h2 class="section-heading text-uppercase">About</h2>
-					 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+					 <h2 class="section-heading text-uppercase"><?php print $t1; ?></h2>
+					 <h3 class="section-subheading text-muted"><?php print $d1; ?></h3>
 				 </div>
 			 </div>
 			 <div class="row">
 				 <div class="col-lg-12">
+                                     <?php  if ( $query->have_posts() ) { ?>
 					 <ul class="timeline">
-						 <li>
+                                             <?php 
+                                             while ( $query->have_posts() ) :
+                                               $query->the_post();
+                                               $sd1 = get_field('about_start_date',$query->ID);
+                                               $ed1 = get_field('about_end_date',$query->ID);
+                                               $sd1 = $ed1 ? date('Y', strtotime($sd1)) : date('F Y', strtotime($sd1));
+                                               $ed1 = $ed1 ? date('Y', strtotime($ed1)) : $ed1; 
+                                               
+                                               //$pt1 = get_the_post_thumbnail( $query->ID, 'thumbnail' );
+                                               $pt1 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                                               
+                                             // check if its odd or even
+                                                if ($pcount % 2 == 0) { print '<li>'; } else { print '<li class="timeline-inverted">'; }       
+                                             ?>            
 							 <div class="timeline-image">
-								 <img class="rounded-circle img-fluid" src="<?php bloginfo('template_directory'); ?>/img/about/1.jpg" alt="">
+								 <!--<img class="rounded-circle img-fluid" src="<?php // bloginfo('template_directory'); ?>/img/about/1.jpg" alt="">-->
+                                                                 <img class="rounded-circle img-fluid" src="<?php print $pt1; ?>" alt="">
 							 </div>
 							 <div class="timeline-panel">
 								 <div class="timeline-heading">
-									 <h4>2009-2011</h4>
-									 <h4 class="subheading">Our Humble Beginnings</h4>
+									 <!--<h4>2009-2011</h4>-->
+                                                                         <h4><?php print ($sd1 ? $sd1 : '').($ed1 ? '-'.$ed1 : '');?></h4>
+									 <h4 class="subheading"><?php echo $query->posts[$pcount]->post_title; ?></h4>
 								 </div>
 								 <div class="timeline-body">
-									 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+									 <p class="text-muted"><?php echo $query->posts[$pcount]->post_content; ?></p>
 								 </div>
 							 </div>
 						 </li>
-						 <li class="timeline-inverted">
-							 <div class="timeline-image">
-								 <img class="rounded-circle img-fluid" src="<?php bloginfo('template_directory'); ?>/img/about/2.jpg" alt="">
-							 </div>
-							 <div class="timeline-panel">
-								 <div class="timeline-heading">
-									 <h4>March 2011</h4>
-									 <h4 class="subheading">An Agency is Born</h4>
-								 </div>
-								 <div class="timeline-body">
-									 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-								 </div>
-							 </div>
-						 </li>
-						 <li>
-							 <div class="timeline-image">
-								 <img class="rounded-circle img-fluid" src="<?php bloginfo('template_directory'); ?>/img/about/3.jpg" alt="">
-							 </div>
-							 <div class="timeline-panel">
-								 <div class="timeline-heading">
-									 <h4>December 2012</h4>
-									 <h4 class="subheading">Transition to Full Service</h4>
-								 </div>
-								 <div class="timeline-body">
-									 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-								 </div>
-							 </div>
-						 </li>
-						 <li class="timeline-inverted">
-							 <div class="timeline-image">
-								 <img class="rounded-circle img-fluid" src="<?php bloginfo('template_directory'); ?>/img/about/4.jpg" alt="">
-							 </div>
-							 <div class="timeline-panel">
-								 <div class="timeline-heading">
-									 <h4>July 2014</h4>
-									 <h4 class="subheading">Phase Two Expansion</h4>
-								 </div>
-								 <div class="timeline-body">
-									 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-								 </div>
-							 </div>
-						 </li>
+                                                 <?php $pcount++; endwhile; ?>   
 						 <li class="timeline-inverted">
 							 <div class="timeline-image">
 								 <h4>Be Part
@@ -85,6 +85,12 @@
 							 </div>
 						 </li>
 					 </ul>
+                                     <?php 
+                                      } else {
+                                        // no posts found
+                                      }
+                                      wp_reset_postdata();
+                                     ?>
 				 </div>
 			 </div>
 		 </div>

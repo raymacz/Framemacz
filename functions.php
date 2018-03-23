@@ -65,6 +65,21 @@ if (! function_exists('framemacz_setup')) :
             'caption',
         ));
 
+      /* note: Supported in other themes like Popper & Twentyseventeen
+    	 * Enable support for Post Formats.
+    	 *
+    	 * See: https://codex.wordpress.org/Post_Formats
+    	 */
+    	add_theme_support( 'post-formats', array(
+    		'aside',
+    		'image',
+    		'video',
+    		'quote',
+    		'link',
+    		'gallery',
+    		'audio',
+    	) );
+
         // Set up the WordPress core custom background feature.
         add_theme_support('custom-background', apply_filters('framemacz_custom_background_args', array(
             'default-color' => 'ffffff',
