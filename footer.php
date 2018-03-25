@@ -59,11 +59,45 @@
 	     </footer>  <!-- colophon -->
 </div><!-- #page -->
 
+<?php
+
+// WP_Query arguments
+$args = array(
+	'post_type'              => array( 'portfolio' ),
+	'post_status'            => array( 'publish' ),
+	'nopaging'               => true,
+	'order'                  => 'DESC',
+	'orderby'                => 'date',
+);
+
+// The Query
+$query = new WP_Query( $args );
+
+
+?>
+
 
 	     <!-- Portfolio Modals -->
-
+<?php  if ( $query->have_posts() ) { 
+    while ( $query->have_posts() ) :
+        $query->the_post(); 
+        //get image path
+        $pt1 = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'framemacz-thumbnail', false );
+        //var_dump($pt1);
+        $fimage1 = $pt1[0];
+        // get the category list
+        $categories = get_the_category_list( esc_html__( ', ', 'framemacz', $post->ID ) );
+        $clist1 = get_the_category($post->ID);
+        $pclient1 = get_field( 'project_client',$query->ID );
+        //the_title();
+        $pdesc1 = get_field( 'project_description',$query->ID );
+        $pdate1 = get_field('project_date',$query->ID);
+        $pdate1 = date('F Y', strtotime($pdate1));
+    
+    
+    ?>
 	     <!-- Modal 1 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+	     <div class="portfolio-modal modal fade" id="portfolioModal<?php print $pcount+1; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 	       <div class="modal-dialog">
 	         <div class="modal-content">
 	           <div class="close-modal" data-dismiss="modal">
@@ -76,14 +110,19 @@
 	               <div class="col-lg-8 mx-auto">
 	                 <div class="modal-body">
 	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/01-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                           <h2 class="text-uppercase"><?php the_title(); ?></h2>
+	                   <p class="item-intro text-muted"><?php print $pdesc1; ?></p>
+	                   <img class="img-fluid d-block mx-auto" src="<?php  print ($fimage1 ? $fimage1 : ''); ?>" alt="">
+                           <p><?php the_content(); ?></p>
 	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Threads</li>
-	                     <li>Category: Illustration</li>
+	                     <li>Date: <?php print $pdate1; ?></li>
+	                     <li>Client: <?php print $pclient1; ?></li>
+	                     <li>Category: <?php 
+                                    $cats1= array();
+                                    foreach ($clist1 as $c1) {
+                                        array_push($cats1, esc_html__($c1->name, 'framemacz'));   
+                                    }
+                                    echo implode(", ", $cats1); ?></li> 
 	                   </ul>
 	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
 	                     <i class="fa fa-times"></i>
@@ -92,180 +131,16 @@
 	               </div>
 	             </div>
 	           </div>
-	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Modal 2 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-	       <div class="modal-dialog">
-	         <div class="modal-content">
-	           <div class="close-modal" data-dismiss="modal">
-	             <div class="lr">
-	               <div class="rl"></div>
-	             </div>
-	           </div>
-	           <div class="container">
-	             <div class="row">
-	               <div class="col-lg-8 mx-auto">
-	                 <div class="modal-body">
-	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/02-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Explore</li>
-	                     <li>Category: Graphic Design</li>
-	                   </ul>
-	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
-	                 </div>
-	               </div>
-	             </div>
-	           </div>
-	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Modal 3 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-	       <div class="modal-dialog">
-	         <div class="modal-content">
-	           <div class="close-modal" data-dismiss="modal">
-	             <div class="lr">
-	               <div class="rl"></div>
-	             </div>
-	           </div>
-	           <div class="container">
-	             <div class="row">
-	               <div class="col-lg-8 mx-auto">
-	                 <div class="modal-body">
-	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/03-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Finish</li>
-	                     <li>Category: Identity</li>
-	                   </ul>
-	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
-	                 </div>
-	               </div>
-	             </div>
-	           </div>
-	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Modal 4 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-	       <div class="modal-dialog">
-	         <div class="modal-content">
-	           <div class="close-modal" data-dismiss="modal">
-	             <div class="lr">
-	               <div class="rl"></div>
-	             </div>
-	           </div>
-	           <div class="container">
-	             <div class="row">
-	               <div class="col-lg-8 mx-auto">
-	                 <div class="modal-body">
-	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/04-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Lines</li>
-	                     <li>Category: Branding</li>
-	                   </ul>
-	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
-	                 </div>
-	               </div>
-	             </div>
-	           </div>
-	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Modal 5 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-	       <div class="modal-dialog">
-	         <div class="modal-content">
-	           <div class="close-modal" data-dismiss="modal">
-	             <div class="lr">
-	               <div class="rl"></div>
-	             </div>
-	           </div>
-	           <div class="container">
-	             <div class="row">
-	               <div class="col-lg-8 mx-auto">
-	                 <div class="modal-body">
-	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/05-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Southwest</li>
-	                     <li>Category: Website Design</li>
-	                   </ul>
-	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
-	                 </div>
-	               </div>
-	             </div>
-	           </div>
-	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Modal 6 -->
-	     <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-	       <div class="modal-dialog">
-	         <div class="modal-content">
-	           <div class="close-modal" data-dismiss="modal">
-	             <div class="lr">
-	               <div class="rl"></div>
-	             </div>
-	           </div>
-	           <div class="container">
-	             <div class="row">
-	               <div class="col-lg-8 mx-auto">
-	                 <div class="modal-body">
-	                   <!-- Project Details Go Here -->
-	                   <h2 class="text-uppercase">Project Name</h2>
-	                   <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-	                   <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/portfolio/06-full.jpg" alt="">
-	                   <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-	                   <ul class="list-inline">
-	                     <li>Date: January 2017</li>
-	                     <li>Client: Window</li>
-	                     <li>Category: Photography</li>
-	                   </ul>
-	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
-	                 </div>
-	               </div>
-	             </div>
-	           </div>
-	         </div>
-	       </div>
-	     </div>
-
+	         </div> <!--modal-content-->
+	       </div><!--modal-dialog-->
+	     </div> <!--modal-->
+             <?php
+        $pcount++; endwhile; 
+      } else {
+             // no posts found
+      }
+wp_reset_postdata(); ?>  
+ 
 <?php wp_footer(); ?>
 
 </body>

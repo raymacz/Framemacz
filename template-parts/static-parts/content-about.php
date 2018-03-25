@@ -7,8 +7,6 @@
  * @package FrameMacz
  */
 
-//get frontpage id
-$post_id = get_option( 'page_on_front' ); //  $frontpage_id
 
 //Initialize Custom Fields
 $t1 = get_field('about_section_title', $post_id);
@@ -55,7 +53,7 @@ $pcount = 0; // initialize object count  ?>
                                                $sd1 = $ed1 ? date('Y', strtotime($sd1)) : date('F Y', strtotime($sd1));
                                                $ed1 = $ed1 ? date('Y', strtotime($ed1)) : $ed1; 
                                                
-                                               //$pt1 = get_the_post_thumbnail( $query->ID, 'thumbnail' );
+                                             //get image path
                                                $pt1 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
                                                
                                              // check if its odd or even
@@ -67,7 +65,6 @@ $pcount = 0; // initialize object count  ?>
 							 </div>
 							 <div class="timeline-panel">
 								 <div class="timeline-heading">
-									 <!--<h4>2009-2011</h4>-->
                                                                          <h4><?php print ($sd1 ? $sd1 : '').($ed1 ? '-'.$ed1 : '');?></h4>
 									 <h4 class="subheading"><?php echo $query->posts[$pcount]->post_title; ?></h4>
 								 </div>

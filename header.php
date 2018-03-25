@@ -80,13 +80,15 @@
         <header id="masthead" class=" home_header site-header" class role="banner">
           <figure class=" header-image">
             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-            <img src="<?php header_image(); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="header image">
+            <?php if (get_header_image_tag()) : ?>
+                <img src="<?php header_image(); ?>" width="<?php echo esc_attr(get_custom_header()->width); ?>" height="<?php echo esc_attr(get_custom_header()->height); ?>" alt="header image">
+            <?php endif; ?>
           </a>
           </figure>
         </header>
       </div>
       <?php else: ?>
-      <header id="masthead" class="masthead site-header" role="banner">
+      <header id="masthead" class="masthead site-header" role="banner" style="background-image: url('<?php  header_image();  ?>')">
         <div class="container">
           <div class="intro-text">
             <div class="intro-lead-in">Welcome To Our Website!</div>

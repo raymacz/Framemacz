@@ -7,6 +7,12 @@
  * @package FrameMacz
  */
 
+//Initialize Custom Fields
+$t1 = get_field('team_logo_1', $post_id);
+$t2 = get_field('team_logo_2', $post_id);
+$t3 = get_field('team_logo_3', $post_id);
+$t4 = get_field('team_logo_4', $post_id);
+
 ?>
 
 <!-- Clients -->
@@ -15,22 +21,22 @@
 			 <div class="row">
 				 <div class="col-md-3 col-sm-6">
 					 <a href="#">
-						 <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/logos/envato.jpg" alt="">
+						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t1 ? $t1['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
 					 <a href="#">
-						 <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/logos/designmodo.jpg" alt="">
+						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t2 ? $t2['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
 					 <a href="#">
-						 <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/logos/themeforest.jpg" alt="">
+						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t3 ? $t3['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
 					 <a href="#">
-						 <img class="img-fluid d-block mx-auto" src="<?php bloginfo('template_directory'); ?>/img/logos/creative-market.jpg" alt="">
+						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t4 ? $t4['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 			 </div>

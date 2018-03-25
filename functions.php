@@ -45,6 +45,7 @@ if (! function_exists('framemacz_setup')) :
         // add custom image sizes
         add_image_size( 'framemacz-full-bleed', 2000, 1200, true );
         add_image_size( 'framemacz-index-image', 1140, 550, true );
+        add_image_size( 'framemacz-thumbnail', 400, 300, true );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
@@ -326,18 +327,16 @@ add_action('widgets_init', 'framemacz_widgets_init');
  * Enqueue scripts and styles.
  */
 
- function replace_jquery() {
+ function framemacz_replace_jquery() {
  	if (!is_admin()) { // comment out the next two lines to load the local copy of jQuery
  		wp_deregister_script('jquery');
- 		// wp_register_script('jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', true, '3.3.1');
  		wp_register_script('jquery', 'https://code.jquery.com/jquery-3.2.1.min.js', true, '3.2.1');
  		wp_enqueue_script('jquery');
  	}
  }
 
  //jQuery
- add_action( 'wp_enqueue_scripts', 'replace_jquery' );
-
+ add_action( 'wp_enqueue_scripts', 'framemacz_replace_jquery' );
 
 function framemacz_scripts()
 {
