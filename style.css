@@ -112,6 +112,27 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+@media screen and (max-width: 360px) {
+	h1 {
+		font-size: 1.75em;
+	}
+	h2 {
+		font-size: 1.5em;
+	}
+	h3 {
+		font-size: 1.2em;
+	}
+	h4 {
+		font-size: 1em;
+	}
+	h5 {
+		font-size: .8em;
+	}
+	h6 {
+		font-size: .65em;
+	}
+}
+
 p {
 	mmargin-top: .4em;
 	margin-bottom: .8em;
@@ -1187,6 +1208,8 @@ header .inbody .navbar-brand span.subhead {
 	display: block;
 	height: 65px;
 	width: auto;
+	border: 3px solid beige;
+	border-radius: 20px 5px 20px 5px;
 }
 
 .site-branding__text {
@@ -1205,8 +1228,8 @@ header .inbody .navbar-brand span.subhead {
 
 /** front Page **/
 #mainNav {
-	min-height: 75px;
-	background-color: #212529;
+	min-height: 76px;
+	background-color: rgba(33, 37, 41, 0.5);
 }
 
 #mainNav div.row.btnrow {
@@ -1263,6 +1286,11 @@ header .inbody .navbar-brand span.subhead {
 	font-size: 14px;
 }
 
+#page .navbar {
+	-webkit-transition: all 1s ease-out;
+	transition: all 1s ease-out;
+}
+
 .site-title a {
 	color: #ee6f00;
 }
@@ -1302,7 +1330,7 @@ header .inbody .navbar-brand span.subhead {
 	#mainNav.navbar-shrink {
 		padding-top: 0;
 		padding-bottom: 0;
-		background-color: #212529;
+		background-color: rgba(33, 37, 41, 0.5);
 	}
 	#mainNav.navbar-shrink .navbar-brand {
 		font-size: 1.25em;
@@ -1310,6 +1338,12 @@ header .inbody .navbar-brand span.subhead {
 	}
 	#mainNav.navbar-shrink i.site-description {
 		display: none;
+	}
+}
+
+@media (max-width: 992px) {
+	#mainNav {
+		min-height: 110px;
 	}
 }
 
@@ -1322,6 +1356,12 @@ header .inbody .navbar-brand span.subhead {
 @media screen and (max-width: 575px) {
 	#mainNav div.row.btnrow i.site-description {
 		display: none;
+	}
+}
+
+@media screen and (max-width: 430px) {
+	#mainNav .col-auto.divbtn {
+		padding: 0px;
 	}
 }
 

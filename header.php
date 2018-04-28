@@ -91,8 +91,8 @@
       <header id="masthead" class="masthead site-header" role="banner" style="background-image: url('<?php  header_image();  ?>')">
         <div class="container">
           <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our Website!</div>
-            <div class="intro-heading text-uppercase">It's Nice Of You To Visit...</div>
+            <div class="intro-lead-in">It's nice of you to visit our site...</div>
+            <div class="intro-heading text-uppercase">Come Home To San Diego!</div>
             <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
           </div>
         </div>

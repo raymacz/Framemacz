@@ -78,11 +78,11 @@ $query = new WP_Query( $args );
 
 
 	     <!-- Portfolio Modals -->
-<?php  if ( $query->have_posts() ) { 
+<?php  if ( $query->have_posts() ) {
     while ( $query->have_posts() ) :
-        $query->the_post(); 
+        $query->the_post();
         //get image path
-        $pt1 = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'framemacz-thumbnail', false );
+        $pt1 = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false );
         //var_dump($pt1);
         $fimage1 = $pt1[0];
         // get the category list
@@ -93,8 +93,8 @@ $query = new WP_Query( $args );
         $pdesc1 = get_field( 'project_description',$query->ID );
         $pdate1 = get_field('project_date',$query->ID);
         $pdate1 = date('F Y', strtotime($pdate1));
-    
-    
+
+
     ?>
 	     <!-- Modal 1 -->
 	     <div class="portfolio-modal modal fade" id="portfolioModal<?php print $pcount+1; ?>" tabindex="-1" role="dialog" aria-hidden="true">
@@ -116,17 +116,17 @@ $query = new WP_Query( $args );
                            <p><?php the_content(); ?></p>
 	                   <ul class="list-inline">
 	                     <li>Date: <?php print $pdate1; ?></li>
-	                     <li>Client: <?php print $pclient1; ?></li>
-	                     <li>Category: <?php 
+	                     <li>Courtest of: <?php print $pclient1; ?></li>
+	                     <li>Category: <?php
                                     $cats1= array();
                                     foreach ($clist1 as $c1) {
-                                        array_push($cats1, esc_html__($c1->name, 'framemacz'));   
+                                        array_push($cats1, esc_html__($c1->name, 'framemacz'));
                                     }
-                                    echo implode(", ", $cats1); ?></li> 
+                                    echo implode(", ", $cats1); ?></li>
 	                   </ul>
 	                   <button class="btn btn-primary" data-dismiss="modal" type="button">
 	                     <i class="fa fa-times"></i>
-	                     Close Project</button>
+	                     Close</button>
 	                 </div>
 	               </div>
 	             </div>
@@ -135,12 +135,12 @@ $query = new WP_Query( $args );
 	       </div><!--modal-dialog-->
 	     </div> <!--modal-->
              <?php
-        $pcount++; endwhile; 
+        $pcount++; endwhile;
       } else {
              // no posts found
       }
-wp_reset_postdata(); ?>  
- 
+wp_reset_postdata(); ?>
+
 <?php wp_footer(); ?>
 
 </body>
