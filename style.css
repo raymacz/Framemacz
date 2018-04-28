@@ -43,7 +43,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 /* general global variables */
 /** new variables rbtm **/
+/** frontpage template color variables start **/
 /* $primary: #fed136 !default; */
+/** frontpage template color variables end **/
 /* custom w/ backup default fonts*/
 /* default */
 /*b4 grid  >=  < 576 768 992 1200 */
@@ -867,7 +869,7 @@ div.alert-success h2.page-title {
 	color: white;
 }
 
-/***** front-page CSS ***/
+/***** global front-page style ***/
 body.is-frontpage {
 	overflow-x: hidden;
 	font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -983,6 +985,7 @@ footer a:hover {
 	background: transparent;
 }
 
+/** frontpage matched **/
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
@@ -1057,6 +1060,49 @@ footer a:hover {
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+/** global branding **/
+.site-branding {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
+	min-height: 65px;
+}
+
+.site-branding .custom-logo-link {
+	display: block;
+	margin-right: 1em;
+	min-width: 65px;
+}
+
+.site-branding .custom-logo-link img {
+	display: block;
+	height: 65px;
+	width: auto;
+	border: 3px solid beige;
+	border-radius: 20px 5px 20px 5px;
+}
+
+.site-branding__text {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	height: 65px;
+}
+
 /** Sub Pages **/
 #page .div-head {
 	padding: 0;
@@ -1114,28 +1160,7 @@ header .navbar-default .navbar-nav .active a:hover {
 	text-shadow: none;
 }
 
-/**  Navbar Brand **/
-header .navbar-brand {
-	background: url(../framemacz/img/wisdompetlogo.svg);
-	background-repeat: no-repeat;
-	background-position: 15px 0;
-	height: auto;
-}
-
-header .navbar-brand h1 {
-	color: white;
-	margin: 0;
-	font-size: 1.8em;
-	font-weight: 400;
-	padding-left: 105px;
-}
-
-header .navbar-brand span.subhead {
-	display: block;
-	font-size: .6em;
-	font-weight: 100;
-}
-
+/** @import "navbrand"; **/
 /**  Navbar Toggle **/
 header .navbar-toggle {
 	background-color: #279182;
@@ -1182,50 +1207,15 @@ header .inbody .navbar-brand span.subhead {
 	display: none;
 }
 
+.site-description {
+	color: #d8a36f;
+}
+
+.site-description small {
+	font-size: 100%;
+}
+
 /** Front Page Static Styles **/
-/** global navbar **/
-.site-branding {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: row;
-	        flex-direction: row;
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 0 auto;
-	        flex: 1 0 auto;
-	min-height: 65px;
-}
-
-.site-branding .custom-logo-link {
-	display: block;
-	margin-right: 1em;
-	min-width: 65px;
-}
-
-.site-branding .custom-logo-link img {
-	display: block;
-	height: 65px;
-	width: auto;
-	border: 3px solid beige;
-	border-radius: 20px 5px 20px 5px;
-}
-
-.site-branding__text {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	height: 65px;
-}
-
 /** front Page **/
 #mainNav {
 	min-height: 76px;
@@ -1365,14 +1355,6 @@ header .inbody .navbar-brand span.subhead {
 	}
 }
 
-.site-description {
-	color: #d8a36f;
-}
-
-.site-description small {
-	font-size: 100%;
-}
-
 header.masthead {
 	text-align: center;
 	color: white;
@@ -1424,6 +1406,7 @@ header.masthead .intro-text .intro-heading {
 	}
 }
 
+/** frontpage matched **/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -2265,6 +2248,7 @@ section#contact :-ms-input-placeholder {
 	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
 }
 
+/***** footer front-page style ***/
 footer {
 	padding: 25px 0;
 	text-align: center;

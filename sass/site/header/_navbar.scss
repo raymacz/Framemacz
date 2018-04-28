@@ -1,31 +1,4 @@
-/** global navbar **/
-.site-branding {
-  display: flex;
-  flex-direction: row;
-  flex: 1 0 auto;
-  min-height: 65px;
 
-  .custom-logo-link {
-    display: block;
-    margin-right: 1em;
-    min-width: 65px;
-
-    img {
-      display: block;
-      height: 65px;
-      width: auto;
-      border: 3px solid beige;
-      border-radius: 20px 5px 20px 5px;
-    }
-  }
-}
-
-.site-branding__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 65px;
-}
 /** front Page **/
 // Styling for the navbar
 
