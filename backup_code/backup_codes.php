@@ -134,8 +134,7 @@
         'show_post_count'=> false,
         'limit' => 5
       ));
-
-  wp_reset_query();
+  
       ?>
       </ul>
     </div>
@@ -194,9 +193,6 @@
        $now_user = wp_get_current_user();
        // $userdata = get_userdata(3);
        // $getuserby = get_user_by('ID', '3');
-       // var_dump($now_user->data->display_name);
-       // $getbypath = get_permalink(get_page_by_path('your-slug'));
-       // $slug = get_post_field('post_name', get_post());
        // $getbypath = get_permalink(get_page_by_path($slug));
   ?>
           <?php if (is_user_logged_in()) { ?>

@@ -44,7 +44,8 @@ $query = new WP_Query( $args );
                                           //var_dump($pt1);
                                           $fimage1 = $pt1[0];
                                           // get the category list
-                                          $categories = get_the_category_list( esc_html__( ', ', 'framemacz', $post->ID ) );
+//                                          $categories = get_the_category_list( esc_html__( ', ', 'framemacz', $post->ID ) );
+                                          $categories = get_the_category_list(  ', ', 'framemacz', $post->ID  );
                                           $clist1 = get_the_category($post->ID);
                                           $pclient1 = get_field( 'project_client',$query->ID );
                                           //the_title();
@@ -68,7 +69,8 @@ $query = new WP_Query( $args );
                                                             <?php
                                                             $cats1= array();
                                                             foreach ($clist1 as $c1) {
-                                                                array_push($cats1,'<p class="cat-p">' . esc_html__($c1->name, 'framemacz') . '</p>');   
+//                                                                array_push($cats1,'<p class="cat-p">' . esc_html__($c1->name, 'framemacz') . '</p>');   
+                                                                array_push($cats1,'<p class="cat-p">' . $c1->name . '</p>');   
                                                             }
                                                             echo implode(", ", $cats1);
                                                             ?>
