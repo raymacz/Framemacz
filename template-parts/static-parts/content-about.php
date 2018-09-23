@@ -44,21 +44,30 @@ $pcount = 0; // initialize object count  ?>
 			 <div class="row">
 				 <div class="col-lg-12">
                                      <?php  if ( $query->have_posts() ) { ?>
-					 <ul class="timeline">
-                                             <?php 
+					 <ul class="timeline about-align">
+						 <li class="timeline-inverted">
+							 <div class="timeline-image hire-me">
+								 <a href="<?php   bloginfo('home'); ?>/hire-me">
+								 <h4>Click To
+									 <br>Know Me
+									 <br>More!</h4>
+								 </a>
+							 </div>
+						 </li>
+                                             <?php
                                              while ( $query->have_posts() ) :
                                                $query->the_post();
                                                $sd1 = get_field('about_start_date',$query->ID);
                                                $ed1 = get_field('about_end_date',$query->ID);
                                                $sd1 = $ed1 ? date('Y', strtotime($sd1)) : date('F Y', strtotime($sd1));
-                                               $ed1 = $ed1 ? date('Y', strtotime($ed1)) : $ed1; 
-                                               
+                                               $ed1 = $ed1 ? date('Y', strtotime($ed1)) : $ed1;
+
                                              //get image path
                                                $pt1 = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-                                               
+
                                              // check if its odd or even
-                                                if ($pcount % 2 == 0) { print '<li>'; } else { print '<li class="timeline-inverted">'; }       
-                                             ?>            
+                                                if ($pcount % 2 == 0) { print '<li>'; } else { print '<li class="timeline-inverted">'; }
+                                             ?>
 							 <div class="timeline-image">
 								 <!--<img class="rounded-circle img-fluid" src="<?php // bloginfo('template_directory'); ?>/img/about/1.jpg" alt="">-->
                                                                  <img class="rounded-circle img-fluid" src="<?php print $pt1; ?>" alt="">
@@ -73,7 +82,7 @@ $pcount = 0; // initialize object count  ?>
 								 </div>
 							 </div>
 						 </li>
-                                                 <?php $pcount++; endwhile; ?>   
+                                                 <?php $pcount++; endwhile; ?>
 						 <li class="timeline-inverted">
 							 <div class="timeline-image">
 								 <h4>Be Part
@@ -81,8 +90,13 @@ $pcount = 0; // initialize object count  ?>
 									 <br>Story!</h4>
 							 </div>
 						 </li>
+
 					 </ul>
-                                     <?php 
+					<div>
+
+
+					</div>
+                                     <?php
                                       } else {
                                         // no posts found
                                       }

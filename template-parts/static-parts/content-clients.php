@@ -25,17 +25,17 @@ $t4 = get_field('team_logo_4', $post_id);
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
-					 <a href="#">
+					 <a href="https://generatepress.com/" target="_blank">
 						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t2 ? $t2['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
-					 <a href="#">
+					 <a href="http://underscores.me/" target="_blank">
 						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t3 ? $t3['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>
 				 <div class="col-md-3 col-sm-6">
-					 <a href="#">
+					 <a href="https://www.webmandesign.eu/" target="_blank">
 						 <img class="img-fluid d-block mx-auto" src="<?php  print ($t4 ? $t4['sizes']['large'] : ''); ?>" alt="">
 					 </a>
 				 </div>

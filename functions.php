@@ -377,7 +377,8 @@ function framemacz_scripts()
 
     // Custom scripts - Agency
     wp_enqueue_script('framemacz-script-agency', get_template_directory_uri() . '/js/agency.js', array('jquery'), '20151215', true);
-
+    // fb meesenger zotabox
+    wp_enqueue_script('framemacz-script-zotabox', '//static.zotabox.com/8/c/8c5a812d9b99d7d10628162182d004e9/widgets.js', array(), '20171225', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

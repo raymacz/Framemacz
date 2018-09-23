@@ -2518,3 +2518,20 @@ SVG Fallbacks
 }
 
 /*# sourceMappingURL=../framemacz/sass/maps/style.css.map */
+/*rbtm add 092118*/
+img.rounded-circle.img-fluid {
+    background-color: white;
+}
+.timeline > li .timeline-image.hire-me {
+    background-color: gray;
+}
+.timeline > li .timeline-image.hire-me:hover {
+    background-color: #663535;
+}
+ul.timeline.about-align {
+    margin-left: 0;
+}
+.timeline-image.hire-me a:hover {
+	color:gray;
+	text-decoration: none;
+}

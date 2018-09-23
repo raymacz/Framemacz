@@ -36,14 +36,14 @@ $query = new WP_Query( $args );
 				 </div>
 			 </div>
 			 <div class="row">
-                             <?php  if ( $query->have_posts() ) { 
+                             <?php  if ( $query->have_posts() ) {
                                       while ( $query->have_posts() ) :
                                            $query->the_post();
-                                      
+
                                       //get image path
                                           $pt1 = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail', false );
                                           $pt1 = $pt1[0];
-                                      //get url & fa code         
+                                      //get url & fa code
                                            $smu1= get_field( 'sm_url_1',$query->ID );
                                            $smu2= get_field( 'sm_url_2',$query->ID );
                                            $smu3= get_field( 'sm_url_3',$query->ID );
@@ -51,7 +51,7 @@ $query = new WP_Query( $args );
                                            $smc2= get_field( 'sm_fa_code_2',$query->ID );
                                            $smc3= get_field( 'sm_fa_code_3',$query->ID );
                                  ?>
-                             
+
                                         <div class="col-sm-4">
                                                 <div class="team-member">
                                                         <img class="mx-auto rounded-circle" src="<?php print ($pt1 ? $pt1 : ''); ?>" alt="">
@@ -60,34 +60,34 @@ $query = new WP_Query( $args );
                                                         <ul class="list-inline social-buttons">
                                                             <?php if ($smu1 && $smc1) : ?>
                                                                 <li class="list-inline-item">
-                                                                        <a href="<?php print $smu1; ?>">
+                                                                        <a href="<?php print $smu1; ?>" target="_blank">
                                                                                 <i class="fa <?php print $smc1; ?>"></i>
                                                                         </a>
                                                                 </li>
-                                                            <?php endif;     
-                                                            if ($smu2 && $smc2) : ?>    
+                                                            <?php endif;
+                                                            if ($smu2 && $smc2) : ?>
                                                                 <li class="list-inline-item">
-                                                                        <a href="<?php print $smu2; ?>">
+                                                                        <a href="<?php print $smu2; ?>" target="_blank">
                                                                                 <i class="fa <?php print $smc2; ?>"></i>
                                                                         </a>
                                                                 </li>
-                                                            <?php endif;     
-                                                            if ($smu3 && $smc3) : ?>        
+                                                            <?php endif;
+                                                            if ($smu3 && $smc3) : ?>
                                                                 <li class="list-inline-item">
-                                                                        <a href="<?php print $smu3; ?>">
+                                                                        <a href="<?php print $smu3; ?>" target="_blank">
                                                                                 <i class="fa <?php print $smc3; ?>"></i>
                                                                         </a>
                                                                 </li>
-                                                            <?php endif; ?>      
+                                                            <?php endif; ?>
                                                         </ul>
                                                 </div>
                                         </div>
                                     <?php
-                                     $pcount++; endwhile; 
+                                     $pcount++; endwhile;
                                     } else {
                                            // no posts found
                                     }
-                            wp_reset_postdata(); ?>  
+                            wp_reset_postdata(); ?>
 			 </div>
 			 <div class="row">
 				 <div class="col-lg-8 mx-auto text-center">

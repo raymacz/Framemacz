@@ -18,14 +18,14 @@
 	       <div class="container">
 	         <div class="row">
 	           <div class="col-md-4">
-							 <div class="footer-text"><?php printf(esc_html__('Powered by: %1$s ', 'framemacz'), '<a class="designer" href="https://webmacz.ml/" rel="designer">WebMacZ & Sons</a>'); ?></div>
+							 <div class="footer-text"><?php printf(esc_html__('Powered by: %1$s ', 'framemacz'), '<a class="designer" href="#" rel="designer">WebMacZ</a>'); ?></div>
 							 <ul class="list-inline quicklinks">
 								<li class="list-inline-item">
-									<a href="#">Privacy Policy</a>
+									<a href="<?php echo home_url(); ?>/privacy-policy">Privacy Policy</a>
 								</li>
-								<li class="list-inline-item">
+								<!-- <li class="list-inline-item">
 									<a href="#">Terms of Use</a>
-								</li>
+								</li> -->
 							</ul>
 	           </div>
 						 <div class="col-md-4">
