@@ -64,7 +64,7 @@
                   );
 
                 if (!is_front_page()) {
-                    // $disp_menu['theme_location'] = 'menu-3';
+                    $disp_menu['theme_location'] = 'menu-3';
                 }
                     wp_nav_menu($disp_menu);
                 ?>
